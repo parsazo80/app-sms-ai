@@ -7,26 +7,23 @@
   --gold-dark: #8c6507;
   --gold-gradient: linear-gradient(135deg, #f3d070 0%, #d4af37 50%, #b8860b 100%);
   --gold-gradient-hover: linear-gradient(135deg, #fae08f 0%, #e0bd49 50%, #c9930f 100%);
-  --gold-glow: 0 10px 25px rgba(212, 175, 55, 0.25);
-  --gold-border-glow: 0 0 15px rgba(212, 175, 55, 0.2);
   --light-bg: #faf8f5;
   --card-bg: #ffffff;
-  --card-border: #f1e5c8;
+  --card-border: #eedfc2;
 }
 
 * {
-  font-family: 'Vazirmatn', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: 'Vazirmatn', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif, Tahoma;
   -webkit-tap-highlight-color: transparent;
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 html, body {
   width: 100%;
   max-width: 100vw;
   overflow-x: hidden;
-}
-
-body {
   background-color: var(--light-bg);
   background-image: 
     radial-gradient(circle at 10% 10%, rgba(212, 175, 55, 0.08) 0%, transparent 40%),
@@ -37,10 +34,25 @@ body {
   min-height: 100vh;
 }
 
-/* Prevent auto-zoom on mobile inputs */
+/* Prevent auto-zoom and tap delays on mobile */
 input, select, textarea, button {
-  font-size: 16px;
+  font-size: 16px !important;
   touch-action: manipulation;
+  font-family: inherit;
+}
+
+/* Stepper step containers - CRITICAL FOR STEP BY STEP NAVIGATION */
+.step-container {
+  display: none !important;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.step-container.active {
+  display: block !important;
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* Gold Gradient Utilities */
@@ -51,32 +63,30 @@ input, select, textarea, button {
 }
 
 .bg-gold-gradient {
-  background: var(--gold-gradient);
+  background: var(--gold-gradient) !important;
+  color: #0f172a !important;
 }
 
-.bg-gold-gradient:hover {
-  background: var(--gold-gradient-hover);
+.bg-gold-gradient:hover,
+.bg-gold-gradient:active {
+  background: var(--gold-gradient-hover) !important;
 }
 
 .shadow-gold {
-  box-shadow: 0 10px 25px -5px rgba(184, 134, 11, 0.3), 0 8px 10px -6px rgba(184, 134, 11, 0.2);
-}
-
-.border-gold {
-  border-color: rgba(212, 175, 55, 0.35);
+  box-shadow: 0 8px 20px -4px rgba(184, 134, 11, 0.3);
 }
 
 /* Light Theme Luxury Cards */
 .luxury-card {
   background: #ffffff;
-  border: 1px solid rgba(212, 175, 55, 0.28);
-  box-shadow: 0 4px 20px -4px rgba(0, 0, 0, 0.05), 0 2px 8px rgba(212, 175, 55, 0.06);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  box-shadow: 0 4px 16px -4px rgba(0, 0, 0, 0.05), 0 2px 6px rgba(212, 175, 55, 0.06);
 }
 
 .interactive-card {
   background: #ffffff;
   border: 1.5px solid #f1e6d0;
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.15s ease;
   cursor: pointer;
 }
 
@@ -84,43 +94,37 @@ input, select, textarea, button {
 .interactive-card:hover {
   border-color: #d4af37;
   background: #fffdf9;
-  box-shadow: 0 6px 16px -4px rgba(212, 175, 55, 0.2);
 }
 
 .interactive-card.active-template {
-  border-color: #b8860b;
-  background: #fffbf0;
-  box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.35), 0 6px 16px -4px rgba(212, 175, 55, 0.2);
+  border-color: #b8860b !important;
+  background: #fffbf0 !important;
+  box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.35);
 }
 
-/* Inputs & Form Controls */
+/* Form Controls */
 .luxury-input-light {
   background: #ffffff;
   border: 1.5px solid #e2d7be;
   color: #0f172a;
   transition: all 0.2s ease;
-  font-size: 16px;
+  width: 100%;
 }
 
 .luxury-input-light:focus {
   outline: none;
   border-color: #b8860b;
   box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.25);
-  background: #ffffff;
-}
-
-.luxury-input-light::placeholder {
-  color: #94a3b8;
-  font-size: 14px;
 }
 
 .luxury-select-light {
   background-color: #ffffff;
   border: 1.5px solid #e2d7be;
   color: #1e293b;
-  transition: all 0.2s ease;
-  font-size: 15px;
   cursor: pointer;
+  width: 100%;
+  -webkit-appearance: menulist;
+  appearance: menulist;
 }
 
 .luxury-select-light:focus {
@@ -129,13 +133,13 @@ input, select, textarea, button {
   box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.25);
 }
 
-/* On-Screen Numeric Keypad Styling */
+/* On-Screen Numeric Keypad */
 .keypad-btn {
   background: #ffffff;
   border: 1.5px solid #eedfc2;
   color: #1e293b;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
-  transition: transform 0.1s ease, background-color 0.1s ease;
+  transition: transform 0.08s ease, background-color 0.08s ease;
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
@@ -144,8 +148,8 @@ input, select, textarea, button {
 
 .keypad-btn:active {
   transform: scale(0.92);
-  background: #fdf3d8;
-  border-color: #b8860b;
+  background: #fdf3d8 !important;
+  border-color: #b8860b !important;
 }
 
 .keypad-btn-special {
@@ -156,63 +160,43 @@ input, select, textarea, button {
   -webkit-user-select: none;
   touch-action: manipulation;
   cursor: pointer;
-  transition: transform 0.1s ease, background-color 0.1s ease;
+  transition: transform 0.08s ease, background-color 0.08s ease;
 }
 
 .keypad-btn-special:active {
   transform: scale(0.92);
-  background: #fee2e2;
-  border-color: #f87171;
-  color: #dc2626;
+  background: #fee2e2 !important;
+  border-color: #f87171 !important;
+  color: #dc2626 !important;
 }
 
-/* Stepper Transitions */
-.step-container {
+/* Logo Image */
+.store-logo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 12px;
+}
+
+/* Modal backdrop */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(15, 23, 42, 0.65);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 999;
   display: none;
-  opacity: 0;
-  transform: translateY(8px);
-  transition: opacity 0.25s ease, transform 0.25s ease;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
 }
 
-.step-container.active {
-  display: block;
-  opacity: 1;
-  transform: translateY(0);
+.modal-overlay.active {
+  display: flex !important;
 }
 
-/* Custom Light Scrollbar */
-::-webkit-scrollbar {
-  width: 5px;
-  height: 5px;
-}
-
-::-webkit-scrollbar-track {
-  background: #f8fafc;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #cbd5e1;
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #d4af37;
-}
-
-/* Animations */
-@keyframes lightGoldPulse {
-  0%, 100% {
-    box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.4);
-  }
-  50% {
-    box-shadow: 0 0 0 6px rgba(212, 175, 55, 0);
-  }
-}
-
-.pulse-gold-light {
-  animation: lightGoldPulse 2.5s infinite;
-}
-
+/* Toast animations */
 @keyframes popIn {
   0% {
     opacity: 0;
@@ -228,10 +212,17 @@ input, select, textarea, button {
   animation: popIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-/* Brand Logo Styling */
-.store-logo-img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  border-radius: 14px;
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f8fafc;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
 }

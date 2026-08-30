@@ -1,5 +1,6 @@
 /**
  * Gold & Jewelry Customer Club - Main Application Script (گالری ظهورعطا)
+ * 100% Robust & Mobile-Optimized
  */
 
 // --- Default Configuration ---
@@ -183,9 +184,20 @@ function formatNumericSolarDate(day, month, year) {
   return `${year}/${m}/${d}`;
 }
 
+function safeIcons() {
+  try {
+    if (window.lucide && typeof window.lucide.createIcons === 'function') {
+      window.lucide.createIcons();
+    }
+  } catch (e) {
+    console.log('Icon rendering fallback');
+  }
+}
+
 // --- Keypad Functions (Tap Action) ---
 function appendDigit(digit) {
   const phoneInput = document.getElementById('customer-phone');
+  if (!phoneInput) return;
   let current = cleanPhoneFormat(phoneInput.value);
   if (current.length < 11) {
     current += digit;
@@ -196,6 +208,7 @@ function appendDigit(digit) {
 
 function deleteDigit() {
   const phoneInput = document.getElementById('customer-phone');
+  if (!phoneInput) return;
   let current = cleanPhoneFormat(phoneInput.value);
   if (current.length > 0) {
     current = current.slice(0, -1);
@@ -206,6 +219,7 @@ function deleteDigit() {
 
 function clearPhone() {
   const phoneInput = document.getElementById('customer-phone');
+  if (!phoneInput) return;
   phoneInput.value = '';
   triggerPhoneValidation('');
 }
@@ -216,74 +230,57 @@ function triggerPhoneValidation(cleanVal) {
 
   if (cleanVal.length === 11 && isValidMobile(cleanVal)) {
     if (phoneError) phoneError.classList.add('hidden');
-    phoneInput.classList.remove('border-rose-500');
-    phoneInput.classList.add('border-emerald-500');
+    if (phoneInput) {
+      phoneInput.classList.remove('border-rose-500');
+      phoneInput.classList.add('border-emerald-500');
+    }
     state.customer.phone = cleanVal;
   } else {
-    phoneInput.classList.remove('border-emerald-500');
+    if (phoneInput) phoneInput.classList.remove('border-emerald-500');
   }
 }
 
-// --- DOM Initializations ---
-document.addEventListener('DOMContentLoaded', () => {
-  initSettings();
-  initDateDropdowns();
-  renderTemplateCards();
-  setupEventListeners();
-  updateStepUI(1);
-  selectTemplate('promo_auction');
-  loadCustomerHistory();
-  initPwaServiceWorker();
+// Populate Persian Solar Date Dropdowns - Run immediately
+function initDateDropdowns() {
+  const populate = (dayElId, monthElId, yearElId, startYear, endYear) => {
+    const daySelect = document.getElementById(dayElId);
+    const monthSelect = document.getElementById(monthElId);
+    const yearSelect = document.getElementById(yearElId);
+    if (!daySelect || !monthSelect || !yearSelect) return;
 
-  if (window.lucide) {
-    lucide.createIcons();
-  }
-});
+    // Reset options
+    daySelect.innerHTML = '<option value="">روز</option>';
+    monthSelect.innerHTML = '<option value="">ماه</option>';
+    yearSelect.innerHTML = '<option value="">سال</option>';
 
-// PWA Service Worker
-function initPwaServiceWorker() {
-  if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-      navigator.serviceWorker
-        .register('./sw.js')
-        .then((reg) => console.log('PWA Service Worker registered:', reg.scope))
-        .catch((err) => console.log('Service Worker registration failed:', err));
-    });
-  }
-
-  window.addEventListener('beforeinstallprompt', (e) => {
-    e.preventDefault();
-    deferredInstallPrompt = e;
-    const installBtn = document.getElementById('pwa-install-btn');
-    if (installBtn) {
-      installBtn.classList.remove('hidden');
-      installBtn.classList.add('flex');
+    // Days 1-31
+    for (let i = 1; i <= 31; i++) {
+      const opt = document.createElement('option');
+      opt.value = i < 10 ? '0' + i : i.toString();
+      opt.textContent = toPersianDigits(i);
+      daySelect.appendChild(opt);
     }
-  });
 
-  window.addEventListener('appinstalled', () => {
-    deferredInstallPrompt = null;
-    const installBtn = document.getElementById('pwa-install-btn');
-    if (installBtn) {
-      installBtn.classList.add('hidden');
-      installBtn.classList.remove('flex');
-    }
-    showToast('اپلیکیشن با موفقیت روی گوشی شما نصب شد.', 'success');
-  });
-}
-
-function promptPwaInstall() {
-  if (deferredInstallPrompt) {
-    deferredInstallPrompt.prompt();
-    deferredInstallPrompt.userChoice.then((choiceResult) => {
-      if (choiceResult.outcome === 'accepted') {
-        console.log('User accepted PWA install');
-      }
-      deferredInstallPrompt = null;
+    // Months
+    persianMonths.forEach((m, idx) => {
+      const opt = document.createElement('option');
+      const val = (idx + 1) < 10 ? '0' + (idx + 1) : (idx + 1).toString();
+      opt.value = val;
+      opt.textContent = m;
+      monthSelect.appendChild(opt);
     });
-  } else {
-    showToast('برای نصب: در منوی مرورگر گوشی گزینه «Add to Home screen» یا «افزودن به صفحه اصلی» را بزنید.', 'info');
-  }
+
+    // Years (descending)
+    for (let y = endYear; y >= startYear; y--) {
+      const opt = document.createElement('option');
+      opt.value = y.toString();
+      opt.textContent = toPersianDigits(y);
+      yearSelect.appendChild(opt);
+    }
+  };
+
+  populate('birth-day', 'birth-month', 'birth-year', 1330, 1403);
+  populate('marriage-day', 'marriage-month', 'marriage-year', 1350, 1403);
 }
 
 // Settings Management
@@ -292,7 +289,6 @@ function initSettings() {
   if (saved) {
     try {
       const parsed = JSON.parse(saved);
-      // Ensure name defaults to گالری ظهورعطا if old name was present
       if (!parsed.name || parsed.name.includes('زرین')) {
         parsed.name = 'گالری ظهورعطا';
       }
@@ -343,13 +339,26 @@ function toggleCustomUrlVisibility() {
 }
 
 function saveSettings() {
-  state.storeSettings.name = document.getElementById('setting-store-name').value.trim() || 'گالری ظهورعطا';
-  state.storeSettings.senderNumber = document.getElementById('setting-sender-number').value.trim() || '30007799';
-  state.storeSettings.smsProvider = document.getElementById('setting-sms-provider').value;
-  state.storeSettings.smsApiKey = document.getElementById('setting-sms-api-key').value.trim();
-  state.storeSettings.smsApiUrl = document.getElementById('setting-sms-api-url').value.trim();
-  state.storeSettings.smsPatternCode = document.getElementById('setting-sms-pattern').value.trim();
-  state.storeSettings.sendMethod = document.getElementById('setting-send-method').value;
+  const nameEl = document.getElementById('setting-store-name');
+  if (nameEl) state.storeSettings.name = nameEl.value.trim() || 'گالری ظهورعطا';
+
+  const senderEl = document.getElementById('setting-sender-number');
+  if (senderEl) state.storeSettings.senderNumber = senderEl.value.trim() || '30007799';
+
+  const providerEl = document.getElementById('setting-sms-provider');
+  if (providerEl) state.storeSettings.smsProvider = providerEl.value;
+
+  const keyEl = document.getElementById('setting-sms-api-key');
+  if (keyEl) state.storeSettings.smsApiKey = keyEl.value.trim();
+
+  const urlEl = document.getElementById('setting-sms-api-url');
+  if (urlEl) state.storeSettings.smsApiUrl = urlEl.value.trim();
+
+  const patternEl = document.getElementById('setting-sms-pattern');
+  if (patternEl) state.storeSettings.smsPatternCode = patternEl.value.trim();
+
+  const methodEl = document.getElementById('setting-send-method');
+  if (methodEl) state.storeSettings.sendMethod = methodEl.value;
 
   localStorage.setItem('gold_store_settings', JSON.stringify(state.storeSettings));
   const headerEl = document.getElementById('header-store-name');
@@ -361,8 +370,10 @@ function saveSettings() {
 }
 
 function testSmsGatewayConnection() {
-  const provider = document.getElementById('setting-sms-provider').value;
-  const apiKey = document.getElementById('setting-sms-api-key').value.trim();
+  const providerEl = document.getElementById('setting-sms-provider');
+  const apiKeyEl = document.getElementById('setting-sms-api-key');
+  const provider = providerEl ? providerEl.value : 'kavenegar';
+  const apiKey = apiKeyEl ? apiKeyEl.value.trim() : '';
 
   if (!apiKey && provider !== 'custom') {
     showToast('لطفاً کلید API یا توکن پنل پیامک را وارد نمایید.', 'error');
@@ -373,50 +384,7 @@ function testSmsGatewayConnection() {
 
   setTimeout(() => {
     showToast('اعتبارسنجی اولیه موفق: پنل پیامک آماده اتصال است.', 'success');
-  }, 1000);
-}
-
-// Populate Persian Solar Date Dropdowns
-function initDateDropdowns() {
-  const populate = (dayElId, monthElId, yearElId, startYear, endYear) => {
-    const daySelect = document.getElementById(dayElId);
-    const monthSelect = document.getElementById(monthElId);
-    const yearSelect = document.getElementById(yearElId);
-    if (!daySelect || !monthSelect || !yearSelect) return;
-
-    // Clear existing except first placeholder
-    daySelect.innerHTML = '<option value="">روز</option>';
-    monthSelect.innerHTML = '<option value="">ماه</option>';
-    yearSelect.innerHTML = '<option value="">سال</option>';
-
-    // Days 1-31
-    for (let i = 1; i <= 31; i++) {
-      const opt = document.createElement('option');
-      opt.value = i < 10 ? '0' + i : i.toString();
-      opt.textContent = toPersianDigits(i);
-      daySelect.appendChild(opt);
-    }
-
-    // Months
-    persianMonths.forEach((m, idx) => {
-      const opt = document.createElement('option');
-      const val = (idx + 1) < 10 ? '0' + (idx + 1) : (idx + 1).toString();
-      opt.value = val;
-      opt.textContent = m;
-      monthSelect.appendChild(opt);
-    });
-
-    // Years (descending)
-    for (let y = endYear; y >= startYear; y--) {
-      const opt = document.createElement('option');
-      opt.value = y.toString();
-      opt.textContent = toPersianDigits(y);
-      yearSelect.appendChild(opt);
-    }
-  };
-
-  populate('birth-day', 'birth-month', 'birth-year', 1330, 1403);
-  populate('marriage-day', 'marriage-month', 'marriage-year', 1350, 1403);
+  }, 800);
 }
 
 // Render Templates
@@ -453,9 +421,7 @@ function renderTemplateCards() {
     container.appendChild(card);
   });
 
-  if (window.lucide) {
-    lucide.createIcons();
-  }
+  safeIcons();
 }
 
 function selectTemplate(templateId) {
@@ -558,19 +524,18 @@ function setupEventListeners() {
   }
 }
 
-// --- Step Navigation & Validation ---
+// --- Step Navigation & Strict Step Display ---
 function goToStep(targetStep) {
-  if (targetStep === state.currentStep) return;
-
+  // Validation before going forward
   if (targetStep > state.currentStep) {
     if (state.currentStep === 1) {
       const phoneInput = document.getElementById('customer-phone');
-      const phoneVal = cleanPhoneFormat(phoneInput.value);
+      const phoneVal = phoneInput ? cleanPhoneFormat(phoneInput.value) : state.customer.phone;
       const phoneError = document.getElementById('phone-error');
 
       if (!isValidMobile(phoneVal)) {
         if (phoneError) phoneError.classList.remove('hidden');
-        phoneInput.classList.add('border-rose-500');
+        if (phoneInput) phoneInput.classList.add('border-rose-500');
         showToast('لطفاً شماره موبایل ۱۱ رقمی معتبر با فرمت ۰۹ وارد کنید.', 'error');
         return;
       }
@@ -580,13 +545,15 @@ function goToStep(targetStep) {
 
     if (state.currentStep === 2) {
       const nameInput = document.getElementById('customer-name');
-      const nameVal = nameInput.value.trim();
+      const nameVal = nameInput ? nameInput.value.trim() : state.customer.fullName;
       const nameError = document.getElementById('name-error');
 
       if (nameVal.length < 3) {
         if (nameError) nameError.classList.remove('hidden');
-        nameInput.classList.add('border-rose-500');
-        nameInput.focus();
+        if (nameInput) {
+          nameInput.classList.add('border-rose-500');
+          nameInput.focus();
+        }
         showToast('وارد کردن نام و نام خانوادگی مشتری الزامی است.', 'error');
         return;
       }
@@ -594,13 +561,19 @@ function goToStep(targetStep) {
       state.customer.fullName = nameVal;
       if (nameError) nameError.classList.add('hidden');
 
-      state.customer.birthDay = document.getElementById('birth-day').value;
-      state.customer.birthMonth = document.getElementById('birth-month').value;
-      state.customer.birthYear = document.getElementById('birth-year').value;
+      const bDayEl = document.getElementById('birth-day');
+      const bMonthEl = document.getElementById('birth-month');
+      const bYearEl = document.getElementById('birth-year');
+      if (bDayEl) state.customer.birthDay = bDayEl.value;
+      if (bMonthEl) state.customer.birthMonth = bMonthEl.value;
+      if (bYearEl) state.customer.birthYear = bYearEl.value;
 
-      state.customer.marriageDay = document.getElementById('marriage-day').value;
-      state.customer.marriageMonth = document.getElementById('marriage-month').value;
-      state.customer.marriageYear = document.getElementById('marriage-year').value;
+      const mDayEl = document.getElementById('marriage-day');
+      const mMonthEl = document.getElementById('marriage-month');
+      const mYearEl = document.getElementById('marriage-year');
+      if (mDayEl) state.customer.marriageDay = mDayEl.value;
+      if (mMonthEl) state.customer.marriageMonth = mMonthEl.value;
+      if (mYearEl) state.customer.marriageYear = mYearEl.value;
 
       const categoryEl = document.querySelector('input[name="customer-interest"]:checked');
       if (categoryEl) state.customer.category = categoryEl.value;
@@ -621,38 +594,40 @@ function updateStepUI(step) {
     const label = document.getElementById(`step-label-${i}`);
     const line = document.getElementById(`step-line-${i}`);
 
-    if (!container) continue;
-
-    if (i === step) {
-      container.classList.add('active');
-    } else {
-      container.classList.remove('active');
+    if (container) {
+      if (i === step) {
+        container.style.display = 'block';
+        container.classList.add('active');
+      } else {
+        container.style.display = 'none';
+        container.classList.remove('active');
+      }
     }
 
-    if (i < step) {
-      indicator.className = 'w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center bg-amber-500 text-white font-bold shadow-md cursor-pointer transition-all flex-shrink-0';
-      indicator.innerHTML = '<i data-lucide="check" class="w-4 h-4 sm:w-5 sm:h-5"></i>';
-      indicator.onclick = () => goToStep(i);
-      if (label) label.className = 'text-[11px] sm:text-xs font-semibold text-amber-800 hidden sm:block';
-      if (line) line.className = 'flex-1 h-1 mx-1.5 sm:mx-2 rounded bg-amber-400';
-    } else if (i === step) {
-      indicator.className = 'w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center bg-gold-gradient text-slate-900 font-bold ring-4 ring-amber-300/40 shadow-gold pulse-gold-light transition-all flex-shrink-0';
-      indicator.textContent = toPersianDigits(i);
-      indicator.onclick = null;
-      if (label) label.className = 'text-[11px] sm:text-xs font-bold text-amber-900';
-      if (line) line.className = 'flex-1 h-1 mx-1.5 sm:mx-2 rounded bg-slate-200';
-    } else {
-      indicator.className = 'w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center bg-slate-100 text-slate-400 border border-slate-200 transition-all flex-shrink-0';
-      indicator.textContent = toPersianDigits(i);
-      indicator.onclick = null;
-      if (label) label.className = 'text-[11px] sm:text-xs font-medium text-slate-400 hidden sm:block';
-      if (line) line.className = 'flex-1 h-1 mx-1.5 sm:mx-2 rounded bg-slate-200';
+    if (indicator) {
+      if (i < step) {
+        indicator.className = 'w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center bg-amber-500 text-white font-bold shadow-md cursor-pointer transition-all flex-shrink-0';
+        indicator.innerHTML = '<i data-lucide="check" class="w-4 h-4 sm:w-5 sm:h-5"></i>';
+        indicator.onclick = () => goToStep(i);
+        if (label) label.className = 'text-[10px] sm:text-xs font-semibold text-amber-800 text-center';
+        if (line) line.className = 'flex-1 h-1 mx-1.5 sm:mx-2 rounded bg-amber-400';
+      } else if (i === step) {
+        indicator.className = 'w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center bg-gold-gradient text-slate-900 font-bold ring-4 ring-amber-300/40 shadow-gold pulse-gold-light transition-all flex-shrink-0 text-sm sm:text-base';
+        indicator.textContent = toPersianDigits(i);
+        indicator.onclick = null;
+        if (label) label.className = 'text-[10px] sm:text-xs font-bold text-amber-900 text-center';
+        if (line) line.className = 'flex-1 h-1 mx-1.5 sm:mx-2 rounded bg-slate-200';
+      } else {
+        indicator.className = 'w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center bg-slate-100 text-slate-400 border border-slate-200 transition-all flex-shrink-0 text-sm sm:text-base';
+        indicator.textContent = toPersianDigits(i);
+        indicator.onclick = null;
+        if (label) label.className = 'text-[10px] sm:text-xs font-medium text-slate-400 text-center';
+        if (line) line.className = 'flex-1 h-1 mx-1.5 sm:mx-2 rounded bg-slate-200';
+      }
     }
   }
 
-  if (window.lucide) {
-    lucide.createIcons();
-  }
+  safeIcons();
 }
 
 // --- Submit & Send Dispatcher (Google Sheets + SMS Gateway API / Native SMS) ---
@@ -788,7 +763,7 @@ async function submitAndSendSMS() {
     submitBtn.disabled = false;
     submitBtn.innerHTML = originalText;
   }
-  if (window.lucide) lucide.createIcons();
+  safeIcons();
 
   showToast('مشتری با موفقیت در سیستم گالری ظهورعطا ثبت شد.', 'success');
 
@@ -897,7 +872,7 @@ function loadCustomerHistory() {
   if (list.length === 0) {
     container.innerHTML = `
       <tr>
-        <td colspan="5" class="text-center py-8 text-slate-400 text-xs sm:text-sm">
+        <td colspan="5" class="text-center py-6 text-slate-400 text-xs sm:text-sm">
           هنوز هیچ مشتری در سامانه ثبت نشده است.
         </td>
       </tr>
@@ -944,8 +919,8 @@ function clearAllHistory() {
 function openModal(id) {
   const modal = document.getElementById(id);
   if (modal) {
-    modal.classList.remove('hidden');
-    modal.classList.add('flex');
+    modal.classList.add('active');
+    modal.style.display = 'flex';
     document.body.style.overflow = 'hidden';
   }
 }
@@ -953,8 +928,8 @@ function openModal(id) {
 function closeModal(id) {
   const modal = document.getElementById(id);
   if (modal) {
-    modal.classList.add('hidden');
-    modal.classList.remove('flex');
+    modal.classList.remove('active');
+    modal.style.display = 'none';
     document.body.style.overflow = '';
   }
 }
@@ -972,18 +947,54 @@ function showToast(message, type = 'info') {
       ? 'bg-emerald-50 border-emerald-200 text-emerald-800 shadow-emerald-100'
       : 'bg-amber-50 border-amber-200 text-amber-900 shadow-amber-100';
 
-  toast.className = `p-3 sm:p-3.5 rounded-2xl border shadow-lg flex items-center gap-2.5 animate-pop-in transition-all text-xs sm:text-sm font-medium ${bgClass}`;
+  toast.className = `p-3 rounded-2xl border shadow-lg flex items-center gap-2.5 animate-pop-in transition-all text-xs sm:text-sm font-medium ${bgClass}`;
   toast.innerHTML = `
-    <i data-lucide="${type === 'error' ? 'alert-circle' : type === 'success' ? 'check-circle-2' : 'info'}" class="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0"></i>
+    <i data-lucide="${type === 'error' ? 'alert-circle' : type === 'success' ? 'check-circle-2' : 'info'}" class="w-4 h-4 flex-shrink-0"></i>
     <span>${message}</span>
   `;
 
   toastContainer.appendChild(toast);
-  if (window.lucide) lucide.createIcons();
+  safeIcons();
 
   setTimeout(() => {
     toast.style.opacity = '0';
     toast.style.transform = 'translateY(-10px)';
     setTimeout(() => toast.remove(), 300);
   }, 3500);
+}
+
+// --- Attach All Functions to Window for 100% Reliability ---
+window.goToStep = goToStep;
+window.appendDigit = appendDigit;
+window.deleteDigit = deleteDigit;
+window.clearPhone = clearPhone;
+window.selectTemplate = selectTemplate;
+window.insertVariable = insertVariable;
+window.submitAndSendSMS = submitAndSendSMS;
+window.openModal = openModal;
+window.closeModal = closeModal;
+window.saveSettings = saveSettings;
+window.clearAllHistory = clearAllHistory;
+window.testSmsGatewayConnection = testSmsGatewayConnection;
+window.promptPwaInstall = promptPwaInstall;
+window.toggleCustomUrlVisibility = toggleCustomUrlVisibility;
+window.viewCustomerDetail = viewCustomerDetail;
+
+// --- Initialize Immediately & on DOMContentLoaded ---
+function initializeApp() {
+  initSettings();
+  initDateDropdowns();
+  renderTemplateCards();
+  setupEventListeners();
+  updateStepUI(1);
+  selectTemplate('promo_auction');
+  loadCustomerHistory();
+  initPwaServiceWorker();
+  safeIcons();
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initializeApp);
+} else {
+  initializeApp();
 }
