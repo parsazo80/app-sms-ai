@@ -1,5 +1,5 @@
 /**
- * Gold & Jewelry Customer Club - Main Application Script (Light Luxury Edition)
+ * Gold & Jewelry Customer Club - Main Application Script (گالری ظهورعطا)
  */
 
 // --- Default Configuration ---
@@ -9,7 +9,7 @@ const GOOGLE_SHEET_WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbwj9nE
 const state = {
   currentStep: 1,
   storeSettings: {
-    name: 'گالری طلا و جواهری زرین',
+    name: 'گالری ظهورعطا',
     senderNumber: '30007799',
     smsProvider: 'kavenegar',
     smsApiKey: '',
@@ -43,7 +43,7 @@ const smsTemplates = [
     title: 'حراج طلای بدون اجرت و سرمایه‌گذاری',
     badge: 'تبلیغاتی ویژه',
     category: 'تبلیغات',
-    text: '🔥 حراج استثنایی در {نام_فروشگاه}!\nجناب/سرکار {نام_مشتری} عزیز، به مدت ۳ روز کلیه کارهای ویترینی و شمش‌های گرمی بدون اجرت و با کمترین درصد به فروش می‌رسد.\nفرصت طلایی پس‌انداز و سرمایه‌گذاری!\nآدرس: بازار زرگران، پلاک ۱۲ | تماس: ۰۲۱۸۸۸۸۸۸۸',
+    text: '🔥 حراج استثنایی در {نام_فروشگاه}!\nجناب/سرکار {نام_مشتری} عزیز، به مدت ۳ روز کلیه مصنوعات طلا، النگو و شمش‌های گرمی بدون اجرت و با کمترین درصد تقدیم شما می‌گردد.\nفرصت طلایی پس‌انداز و سرمایه‌گذاری!\nگالری طلا و جواهر ظهورعطا',
   },
   {
     id: 'promo_weekend',
@@ -51,7 +51,7 @@ const smsTemplates = [
     title: 'تخفیف ۵۰٪ اجرت ساخت (آخر هفته VIP)',
     badge: 'تخفیف داغ',
     category: 'تبلیغات',
-    text: 'درخشش بیشتر با هزینه کمتر ✨\n{نام_مشتری} گرامی، به عنوان عضو VIP باشگاه مشتریان {نام_فروشگاه}، پنجشنبه و جمعه این هفته از ۵۰٪ تخفیف در اجرت ساخت کلیه سرویس‌ها، النگو و نیم‌ست‌های مدرن بهره‌مند شوید.\nکد تخفیف: VIP-GOLD50',
+    text: 'درخشش بیشتر با هزینه کمتر ✨\n{نام_مشتری} گرامی، به عنوان عضو VIP باشگاه مشتریان {نام_فروشگاه}، پنجشنبه و جمعه این هفته از ۵۰٪ تخفیف در اجرت ساخت کلیه سرویس‌ها، دستبند و نیم‌ست‌های مدرن بهره‌مند شوید.\nکد تخفیف: ZOHOUR-VIP50',
   },
   {
     id: 'promo_collection',
@@ -59,7 +59,7 @@ const smsTemplates = [
     title: 'رونمایی کالکشن جدید طلا و جواهر',
     badge: 'تبلیغات کالکشن',
     category: 'تبلیغات',
-    text: 'جدیدترین‌های دنیای طلا و جواهر رسید!\n{نام_مشتری} عزیز، از کالکشن بی‌نظیر پاییزه {نام_فروشگاه} شامل لوکس‌ترین دستبندهای مینیمال و ست‌های کادویی دیدن فرمایید.\nهمراه با هدیه ویژه برای خریدهای بالای ۱۰ میلیون تومان.\nمشاهده: zaringold.club/new',
+    text: 'جدیدترین‌های دنیای طلا و جواهر رسید!\n{نام_مشتری} عزیز، از کالکشن بی‌نظیر پاییزه {نام_فروشگاه} شامل لوکس‌ترین دستبندهای مینیمال و ست‌های کادویی دیدن فرمایید.\nهمراه با هدیه ویژه برای خریدهای نقدی.\nگالری طلا و جواهر ظهورعطا',
   },
   {
     id: 'purchase',
@@ -67,7 +67,7 @@ const smsTemplates = [
     title: 'تبریک خرید و ثبت امتیاز باشگاه',
     badge: 'خرید طلا',
     category: 'خدمات مشتریان',
-    text: 'مشتری گرامی {نام_مشتری}، از خرید و حسن اعتماد شما به {نام_فروشگاه} سپاسگزاریم.\nفاکتور شما ثبت و ۱۰۰ امتیاز به حساب باشگاه مشتریان شما اضافه شد.\nلینک مشاهده فاکتور الکترونیک و مانده امتیازات:\nzaringold.club/u/{شماره_همراه}',
+    text: 'مشتری گرامی {نام_مشتری}، از خرید و حسن اعتماد شما به {نام_فروشگاه} صمیمانه سپاسگزاریم.\nفاکتور شما ثبت و ۱۰۰ امتیاز به حساب باشگاه مشتریان شما اضافه شد.\nبا آرزوی درخشش همیشگی شما.\nگالری ظهورعطا',
   },
   {
     id: 'birthday',
@@ -75,7 +75,7 @@ const smsTemplates = [
     title: 'هدیه سالروز تولد (تخفیف اجرت ساخت)',
     badge: 'مناسبتی',
     category: 'تبریک تولد',
-    text: 'جناب/سرکار {نام_مشتری} عزیز، سالروز تولدتان فرخنده باد! ✨\nبه پاس همراهی ارزشمندتان، هدیه {نام_فروشگاه} شامل ۲۵٪ تخفیف در اجرت ساخت کلیه کارهای طلا تا پایان این هفته برای شما فعال گردید.\nکد هدیه: HBD-GOLD25\nلحظاتتان همواره به درخشش طلا.',
+    text: 'جناب/سرکار {نام_مشتری} عزیز، سالروز تولدتان فرخنده باد! ✨\nبه پاس همراهی ارزشمندتان، هدیه {نام_فروشگاه} شامل ۲۵٪ تخفیف در اجرت ساخت کلیه کارهای طلا تا پایان این هفته برای شما فعال گردید.\nکد هدیه: HBD-ZOHOUR25\nلحظاتتان همواره درخشان باد.',
   },
   {
     id: 'anniversary',
@@ -83,7 +83,7 @@ const smsTemplates = [
     title: 'تبریک سالگرد ازدواج',
     badge: 'مناسبتی',
     category: 'سالگرد ازدواج',
-    text: '{نام_مشتری} گرامی، سالگرد پیوند پرمهرتان مبارک باد 💍\nآرزومندیم زندگیتان همواره همچون طلا پایدار و درخشان باشد.\nبرای انتخاب هدیه و یادبود سالگرد، از ۲۰٪ تخفیف اجرت ساخت ست و نیم‌ست‌های ما استفاده نمایید.',
+    text: '{نام_مشتری} گرامی، سالگرد پیوند پرمهرتان مبارک باد 💍\nآرزومندیم زندگیتان همواره همچون طلا پایدار و درخشان باشد.\nبرای انتخاب هدیه و یادبود سالگرد، از ۲۰٪ تخفیف اجرت ساخت ست و نیم‌ست‌های {نام_فروشگاه} استفاده نمایید.',
   },
   {
     id: 'service',
@@ -91,7 +91,7 @@ const smsTemplates = [
     title: 'سرویس و آبکاری رایگان طلا',
     badge: 'خدمات VIP',
     category: 'خدمات',
-    text: '{نام_مشتری} ارجمند، به مناسبت عضویت در باشگاه مشتریان {نام_فروشگاه}، سرویس شستشو، آبکاری و بررسی نگین کلیه طلا و جواهرات شما این ماه به صورت کاملاً رایگان انجام می‌شود.\nمشتاق دیدار مجدد شما هستیم.',
+    text: '{نام_مشتری} ارجمند، به مناسبت عضویت در باشگاه مشتریان {نام_فروشگاه}، سرویس شستشو، آبکاری و بررسی نگین کلیه طلا و جواهرات شما این ماه به صورت کاملاً رایگان انجام می‌شود.\nمشتاق دیدار مجدد شما در گالری ظهورعطا هستیم.',
   },
   {
     id: 'custom',
@@ -141,14 +141,14 @@ function cleanPhoneFormat(phone) {
 
 function renderSmsVariables(text) {
   const name = state.customer.fullName.trim() || 'مشتری گرامی';
-  const store = state.storeSettings.name || 'گالری طلا';
+  const store = state.storeSettings.name || 'گالری ظهورعطا';
   const phone = state.customer.phone || '09xxxxxxxxx';
 
   return text
     .replace(/{نام_مشتری}/g, name)
     .replace(/{نام_فروشگاه}/g, store)
     .replace(/{شماره_همراه}/g, phone)
-    .replace(/{کد_تخفیف}/g, 'GOLD-' + Math.floor(1000 + Math.random() * 9000));
+    .replace(/{کد_تخفیف}/g, 'ZOHOUR-' + Math.floor(1000 + Math.random() * 9000));
 }
 
 function calculateSmsParts(text) {
@@ -183,7 +183,7 @@ function formatNumericSolarDate(day, month, year) {
   return `${year}/${m}/${d}`;
 }
 
-// --- Interactive Numeric Keypad Functions ---
+// --- Keypad Functions (Tap Action) ---
 function appendDigit(digit) {
   const phoneInput = document.getElementById('customer-phone');
   let current = cleanPhoneFormat(phoneInput.value);
@@ -215,7 +215,7 @@ function triggerPhoneValidation(cleanVal) {
   const phoneError = document.getElementById('phone-error');
 
   if (cleanVal.length === 11 && isValidMobile(cleanVal)) {
-    phoneError.classList.add('hidden');
+    if (phoneError) phoneError.classList.add('hidden');
     phoneInput.classList.remove('border-rose-500');
     phoneInput.classList.add('border-emerald-500');
     state.customer.phone = cleanVal;
@@ -224,7 +224,7 @@ function triggerPhoneValidation(cleanVal) {
   }
 }
 
-// --- DOM Initializations & Event Listeners ---
+// --- DOM Initializations ---
 document.addEventListener('DOMContentLoaded', () => {
   initSettings();
   initDateDropdowns();
@@ -257,6 +257,7 @@ function initPwaServiceWorker() {
     const installBtn = document.getElementById('pwa-install-btn');
     if (installBtn) {
       installBtn.classList.remove('hidden');
+      installBtn.classList.add('flex');
     }
   });
 
@@ -265,6 +266,7 @@ function initPwaServiceWorker() {
     const installBtn = document.getElementById('pwa-install-btn');
     if (installBtn) {
       installBtn.classList.add('hidden');
+      installBtn.classList.remove('flex');
     }
     showToast('اپلیکیشن با موفقیت روی گوشی شما نصب شد.', 'success');
   });
@@ -280,7 +282,7 @@ function promptPwaInstall() {
       deferredInstallPrompt = null;
     });
   } else {
-    showToast('برای نصب: در منوی مرورگر گوشی گزینه «Add to Home screen» را بزنید.', 'info');
+    showToast('برای نصب: در منوی مرورگر گوشی گزینه «Add to Home screen» یا «افزودن به صفحه اصلی» را بزنید.', 'info');
   }
 }
 
@@ -289,25 +291,47 @@ function initSettings() {
   const saved = localStorage.getItem('gold_store_settings');
   if (saved) {
     try {
-      state.storeSettings = { ...state.storeSettings, ...JSON.parse(saved) };
+      const parsed = JSON.parse(saved);
+      // Ensure name defaults to گالری ظهورعطا if old name was present
+      if (!parsed.name || parsed.name.includes('زرین')) {
+        parsed.name = 'گالری ظهورعطا';
+      }
+      state.storeSettings = { ...state.storeSettings, ...parsed };
     } catch (e) {
       console.error(e);
     }
   }
-  document.getElementById('header-store-name').textContent = state.storeSettings.name;
-  document.getElementById('setting-store-name').value = state.storeSettings.name || '';
-  document.getElementById('setting-sender-number').value = state.storeSettings.senderNumber || '';
-  document.getElementById('setting-sms-provider').value = state.storeSettings.smsProvider || 'kavenegar';
-  document.getElementById('setting-sms-api-key').value = state.storeSettings.smsApiKey || '';
-  document.getElementById('setting-sms-api-url').value = state.storeSettings.smsApiUrl || '';
-  document.getElementById('setting-sms-pattern').value = state.storeSettings.smsPatternCode || '';
-  document.getElementById('setting-send-method').value = state.storeSettings.sendMethod || 'native_sms';
+  const headerEl = document.getElementById('header-store-name');
+  if (headerEl) headerEl.textContent = state.storeSettings.name;
+  
+  const nameInput = document.getElementById('setting-store-name');
+  if (nameInput) nameInput.value = state.storeSettings.name;
+
+  const senderInput = document.getElementById('setting-sender-number');
+  if (senderInput) senderInput.value = state.storeSettings.senderNumber || '';
+
+  const providerSelect = document.getElementById('setting-sms-provider');
+  if (providerSelect) providerSelect.value = state.storeSettings.smsProvider || 'kavenegar';
+
+  const keyInput = document.getElementById('setting-sms-api-key');
+  if (keyInput) keyInput.value = state.storeSettings.smsApiKey || '';
+
+  const urlInput = document.getElementById('setting-sms-api-url');
+  if (urlInput) urlInput.value = state.storeSettings.smsApiUrl || '';
+
+  const patternInput = document.getElementById('setting-sms-pattern');
+  if (patternInput) patternInput.value = state.storeSettings.smsPatternCode || '';
+
+  const methodSelect = document.getElementById('setting-send-method');
+  if (methodSelect) methodSelect.value = state.storeSettings.sendMethod || 'native_sms';
 
   toggleCustomUrlVisibility();
 }
 
 function toggleCustomUrlVisibility() {
-  const provider = document.getElementById('setting-sms-provider').value;
+  const providerEl = document.getElementById('setting-sms-provider');
+  if (!providerEl) return;
+  const provider = providerEl.value;
   const customUrlContainer = document.getElementById('custom-url-container');
   if (customUrlContainer) {
     if (provider === 'custom') {
@@ -319,7 +343,7 @@ function toggleCustomUrlVisibility() {
 }
 
 function saveSettings() {
-  state.storeSettings.name = document.getElementById('setting-store-name').value.trim() || 'گالری طلا و جواهری زرین';
+  state.storeSettings.name = document.getElementById('setting-store-name').value.trim() || 'گالری ظهورعطا';
   state.storeSettings.senderNumber = document.getElementById('setting-sender-number').value.trim() || '30007799';
   state.storeSettings.smsProvider = document.getElementById('setting-sms-provider').value;
   state.storeSettings.smsApiKey = document.getElementById('setting-sms-api-key').value.trim();
@@ -328,10 +352,12 @@ function saveSettings() {
   state.storeSettings.sendMethod = document.getElementById('setting-send-method').value;
 
   localStorage.setItem('gold_store_settings', JSON.stringify(state.storeSettings));
-  document.getElementById('header-store-name').textContent = state.storeSettings.name;
+  const headerEl = document.getElementById('header-store-name');
+  if (headerEl) headerEl.textContent = state.storeSettings.name;
+
   closeModal('settings-modal');
   updateSmsCounters();
-  showToast('تنظیمات پنل پیامک و گالری با موفقیت ذخیره گردید.', 'success');
+  showToast('تنظیمات فروشگاه ظهورعطا با موفقیت ذخیره گردید.', 'success');
 }
 
 function testSmsGatewayConnection() {
@@ -356,6 +382,12 @@ function initDateDropdowns() {
     const daySelect = document.getElementById(dayElId);
     const monthSelect = document.getElementById(monthElId);
     const yearSelect = document.getElementById(yearElId);
+    if (!daySelect || !monthSelect || !yearSelect) return;
+
+    // Clear existing except first placeholder
+    daySelect.innerHTML = '<option value="">روز</option>';
+    monthSelect.innerHTML = '<option value="">ماه</option>';
+    yearSelect.innerHTML = '<option value="">سال</option>';
 
     // Days 1-31
     for (let i = 1; i <= 31; i++) {
@@ -390,30 +422,31 @@ function initDateDropdowns() {
 // Render Templates
 function renderTemplateCards() {
   const container = document.getElementById('templates-container');
+  if (!container) return;
   container.innerHTML = '';
 
   smsTemplates.forEach((tpl) => {
     const card = document.createElement('div');
-    card.className = `interactive-card p-3.5 rounded-2xl cursor-pointer transition-all relative ${
+    card.className = `interactive-card p-3 rounded-2xl cursor-pointer transition-all relative ${
       state.customer.selectedTemplateId === tpl.id ? 'active-template' : ''
     }`;
     card.id = `template-card-${tpl.id}`;
     card.onclick = () => selectTemplate(tpl.id);
 
     card.innerHTML = `
-      <div class="flex items-start justify-between mb-1.5">
+      <div class="flex items-start justify-between mb-1">
         <div class="flex items-center gap-2">
-          <div class="w-8 h-8 rounded-xl bg-amber-500/15 text-amber-700 flex items-center justify-center">
-            <i data-lucide="${tpl.icon}" class="w-4 h-4"></i>
+          <div class="w-7 h-7 rounded-lg bg-amber-500/15 text-amber-700 flex items-center justify-center flex-shrink-0">
+            <i data-lucide="${tpl.icon}" class="w-3.5 h-3.5"></i>
           </div>
-          <span class="font-bold text-xs sm:text-sm text-slate-800">${tpl.title}</span>
+          <span class="font-bold text-xs text-slate-800">${tpl.title}</span>
         </div>
-        <span class="text-[10px] px-2 py-0.5 rounded-full bg-amber-50 text-amber-800 border border-amber-300 font-semibold">
+        <span class="text-[10px] px-2 py-0.5 rounded-full bg-amber-50 text-amber-800 border border-amber-300 font-semibold flex-shrink-0">
           ${tpl.badge}
         </span>
       </div>
-      <p class="text-xs text-slate-500 line-clamp-2 leading-relaxed mt-1">
-        ${tpl.text.replace(/{نام_مشتری}/g, 'نام مشتری').replace(/{نام_فروشگاه}/g, 'گالری طلا').substring(0, 85)}...
+      <p class="text-[11px] text-slate-500 line-clamp-2 leading-relaxed mt-0.5">
+        ${tpl.text.replace(/{نام_مشتری}/g, 'نام مشتری').replace(/{نام_فروشگاه}/g, 'گالری ظهورعطا').substring(0, 80)}...
       </p>
     `;
 
@@ -438,14 +471,17 @@ function selectTemplate(templateId) {
   }
 
   const textarea = document.getElementById('sms-custom-text');
-  textarea.value = renderSmsVariables(tpl.text);
-  state.customer.smsText = textarea.value;
+  if (textarea) {
+    textarea.value = renderSmsVariables(tpl.text);
+    state.customer.smsText = textarea.value;
+  }
 
   updateSmsCounters();
 }
 
 function insertVariable(tag) {
   const textarea = document.getElementById('sms-custom-text');
+  if (!textarea) return;
   const start = textarea.selectionStart;
   const end = textarea.selectionEnd;
   const text = textarea.value;
@@ -454,9 +490,9 @@ function insertVariable(tag) {
   if (tag === '{نام_مشتری}') {
     insertValue = state.customer.fullName.trim() || '{نام_مشتری}';
   } else if (tag === '{نام_فروشگاه}') {
-    insertValue = state.storeSettings.name;
+    insertValue = state.storeSettings.name || 'گالری ظهورعطا';
   } else if (tag === '{کد_تخفیف}') {
-    insertValue = 'GOLD-' + Math.floor(1000 + Math.random() * 9000);
+    insertValue = 'ZOHOUR-' + Math.floor(1000 + Math.random() * 9000);
   }
 
   textarea.value = text.substring(0, start) + insertValue + text.substring(end);
@@ -473,43 +509,53 @@ function updateSmsCounters() {
   state.customer.smsText = text;
 
   const stats = calculateSmsParts(text);
-  document.getElementById('char-count').textContent = toPersianDigits(stats.length);
-  document.getElementById('parts-count').textContent = toPersianDigits(stats.parts) + ' پیامک';
+  const charEl = document.getElementById('char-count');
+  const partsEl = document.getElementById('parts-count');
+  if (charEl) charEl.textContent = toPersianDigits(stats.length);
+  if (partsEl) partsEl.textContent = toPersianDigits(stats.parts) + ' پیامک';
 }
 
 function setupEventListeners() {
   const phoneInput = document.getElementById('customer-phone');
-  phoneInput.addEventListener('input', (e) => {
-    const rawVal = e.target.value;
-    const clean = cleanPhoneFormat(rawVal);
-    if (clean.length > 11) {
-      phoneInput.value = clean.substring(0, 11);
-    }
-    triggerPhoneValidation(clean);
-  });
+  if (phoneInput) {
+    phoneInput.addEventListener('input', (e) => {
+      const rawVal = e.target.value;
+      const clean = cleanPhoneFormat(rawVal);
+      if (clean.length > 11) {
+        phoneInput.value = clean.substring(0, 11);
+      }
+      triggerPhoneValidation(clean);
+    });
+  }
 
   const nameInput = document.getElementById('customer-name');
   const nameError = document.getElementById('name-error');
 
-  nameInput.addEventListener('input', (e) => {
-    state.customer.fullName = e.target.value;
-    if (e.target.value.trim().length >= 3) {
-      nameError.classList.add('hidden');
-      nameInput.classList.remove('border-rose-500');
-    }
-    if (state.customer.selectedTemplateId) {
-      const tpl = smsTemplates.find((t) => t.id === state.customer.selectedTemplateId);
-      if (tpl && state.customer.selectedTemplateId !== 'custom') {
-        const textarea = document.getElementById('sms-custom-text');
-        textarea.value = renderSmsVariables(tpl.text);
-        state.customer.smsText = textarea.value;
-        updateSmsCounters();
+  if (nameInput) {
+    nameInput.addEventListener('input', (e) => {
+      state.customer.fullName = e.target.value;
+      if (e.target.value.trim().length >= 3) {
+        if (nameError) nameError.classList.add('hidden');
+        nameInput.classList.remove('border-rose-500');
       }
-    }
-  });
+      if (state.customer.selectedTemplateId) {
+        const tpl = smsTemplates.find((t) => t.id === state.customer.selectedTemplateId);
+        if (tpl && state.customer.selectedTemplateId !== 'custom') {
+          const textarea = document.getElementById('sms-custom-text');
+          if (textarea) {
+            textarea.value = renderSmsVariables(tpl.text);
+            state.customer.smsText = textarea.value;
+            updateSmsCounters();
+          }
+        }
+      }
+    });
+  }
 
   const textarea = document.getElementById('sms-custom-text');
-  textarea.addEventListener('input', updateSmsCounters);
+  if (textarea) {
+    textarea.addEventListener('input', updateSmsCounters);
+  }
 }
 
 // --- Step Navigation & Validation ---
@@ -523,13 +569,13 @@ function goToStep(targetStep) {
       const phoneError = document.getElementById('phone-error');
 
       if (!isValidMobile(phoneVal)) {
-        phoneError.classList.remove('hidden');
+        if (phoneError) phoneError.classList.remove('hidden');
         phoneInput.classList.add('border-rose-500');
         showToast('لطفاً شماره موبایل ۱۱ رقمی معتبر با فرمت ۰۹ وارد کنید.', 'error');
         return;
       }
       state.customer.phone = phoneVal;
-      phoneError.classList.add('hidden');
+      if (phoneError) phoneError.classList.add('hidden');
     }
 
     if (state.currentStep === 2) {
@@ -538,7 +584,7 @@ function goToStep(targetStep) {
       const nameError = document.getElementById('name-error');
 
       if (nameVal.length < 3) {
-        nameError.classList.remove('hidden');
+        if (nameError) nameError.classList.remove('hidden');
         nameInput.classList.add('border-rose-500');
         nameInput.focus();
         showToast('وارد کردن نام و نام خانوادگی مشتری الزامی است.', 'error');
@@ -546,7 +592,7 @@ function goToStep(targetStep) {
       }
 
       state.customer.fullName = nameVal;
-      nameError.classList.add('hidden');
+      if (nameError) nameError.classList.add('hidden');
 
       state.customer.birthDay = document.getElementById('birth-day').value;
       state.customer.birthMonth = document.getElementById('birth-month').value;
@@ -575,6 +621,8 @@ function updateStepUI(step) {
     const label = document.getElementById(`step-label-${i}`);
     const line = document.getElementById(`step-line-${i}`);
 
+    if (!container) continue;
+
     if (i === step) {
       container.classList.add('active');
     } else {
@@ -582,23 +630,23 @@ function updateStepUI(step) {
     }
 
     if (i < step) {
-      indicator.className = 'w-10 h-10 rounded-full flex items-center justify-center bg-amber-500 text-white font-bold shadow-md cursor-pointer transition-all';
-      indicator.innerHTML = '<i data-lucide="check" class="w-5 h-5"></i>';
+      indicator.className = 'w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center bg-amber-500 text-white font-bold shadow-md cursor-pointer transition-all flex-shrink-0';
+      indicator.innerHTML = '<i data-lucide="check" class="w-4 h-4 sm:w-5 sm:h-5"></i>';
       indicator.onclick = () => goToStep(i);
-      label.className = 'text-xs font-semibold text-amber-800 hidden sm:block';
-      if (line) line.className = 'flex-1 h-1 mx-2 rounded bg-amber-400';
+      if (label) label.className = 'text-[11px] sm:text-xs font-semibold text-amber-800 hidden sm:block';
+      if (line) line.className = 'flex-1 h-1 mx-1.5 sm:mx-2 rounded bg-amber-400';
     } else if (i === step) {
-      indicator.className = 'w-10 h-10 rounded-full flex items-center justify-center bg-gold-gradient text-slate-900 font-bold ring-4 ring-amber-300/40 shadow-gold pulse-gold-light transition-all';
+      indicator.className = 'w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center bg-gold-gradient text-slate-900 font-bold ring-4 ring-amber-300/40 shadow-gold pulse-gold-light transition-all flex-shrink-0';
       indicator.textContent = toPersianDigits(i);
       indicator.onclick = null;
-      label.className = 'text-xs font-bold text-amber-900';
-      if (line) line.className = 'flex-1 h-1 mx-2 rounded bg-slate-200';
+      if (label) label.className = 'text-[11px] sm:text-xs font-bold text-amber-900';
+      if (line) line.className = 'flex-1 h-1 mx-1.5 sm:mx-2 rounded bg-slate-200';
     } else {
-      indicator.className = 'w-10 h-10 rounded-full flex items-center justify-center bg-slate-100 text-slate-400 border border-slate-200 transition-all';
+      indicator.className = 'w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center bg-slate-100 text-slate-400 border border-slate-200 transition-all flex-shrink-0';
       indicator.textContent = toPersianDigits(i);
       indicator.onclick = null;
-      label.className = 'text-xs font-medium text-slate-400 hidden sm:block';
-      if (line) line.className = 'flex-1 h-1 mx-2 rounded bg-slate-200';
+      if (label) label.className = 'text-[11px] sm:text-xs font-medium text-slate-400 hidden sm:block';
+      if (line) line.className = 'flex-1 h-1 mx-1.5 sm:mx-2 rounded bg-slate-200';
     }
   }
 
@@ -610,29 +658,31 @@ function updateStepUI(step) {
 // --- Submit & Send Dispatcher (Google Sheets + SMS Gateway API / Native SMS) ---
 async function submitAndSendSMS() {
   const textarea = document.getElementById('sms-custom-text');
-  const message = textarea.value.trim();
+  const message = textarea ? textarea.value.trim() : state.customer.smsText.trim();
 
   if (!message) {
     showToast('متن پیامک نمی‌تواند خالی باشد.', 'error');
-    textarea.focus();
+    if (textarea) textarea.focus();
     return;
   }
 
   const submitBtn = document.getElementById('btn-submit-sms');
-  const originalText = submitBtn.innerHTML;
+  const originalText = submitBtn ? submitBtn.innerHTML : '';
 
-  submitBtn.disabled = true;
-  submitBtn.innerHTML = `
-    <div class="flex items-center justify-center gap-2">
-      <svg class="animate-spin h-5 w-5 text-slate-900" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-      </svg>
-      <span>در حال ثبت مشتری و ارسال اطلاعات به گوگل‌شیت...</span>
-    </div>
-  `;
+  if (submitBtn) {
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = `
+      <div class="flex items-center justify-center gap-2">
+        <svg class="animate-spin h-5 w-5 text-slate-900" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+          <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+          <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+        </svg>
+        <span>در حال ثبت مشتری در گوگل‌شیت...</span>
+      </div>
+    `;
+  }
 
-  // Read direct DOM values to ensure 100% accuracy of birth & marriage dates
+  // Direct DOM read
   const bDay = document.getElementById('birth-day') ? document.getElementById('birth-day').value : state.customer.birthDay;
   const bMonth = document.getElementById('birth-month') ? document.getElementById('birth-month').value : state.customer.birthMonth;
   const bYear = document.getElementById('birth-year') ? document.getElementById('birth-year').value : state.customer.birthYear;
@@ -647,21 +697,17 @@ async function submitAndSendSMS() {
   const marriageDateFormatted = formatSolarDate(mDay, mMonth, mYear);
   const marriageDateNumeric = formatNumericSolarDate(mDay, mMonth, mYear);
 
-  // Full comprehensive payload with all possible column alias mappings for Google Sheets
   const customerRecord = {
     id: Date.now(),
     phone: state.customer.phone,
     mobile: state.customer.phone,
     phoneNumber: state.customer.phone,
-    phone_number: state.customer.phone,
     'شماره همراه': state.customer.phone,
     'شماره تماس': state.customer.phone,
-    'موبایل': state.customer.phone,
 
     fullName: state.customer.fullName,
     full_name: state.customer.fullName,
     name: state.customer.fullName,
-    customerName: state.customer.fullName,
     'نام و نام خانوادگی': state.customer.fullName,
     'نام': state.customer.fullName,
 
@@ -670,38 +716,25 @@ async function submitAndSendSMS() {
     birthDay: bDay,
     birthMonth: bMonth,
     birthYear: bYear,
-    birthNumeric: birthDateNumeric,
     'تاریخ تولد': birthDateFormatted || birthDateNumeric,
 
     marriageDate: marriageDateFormatted || marriageDateNumeric,
     marriage_date: marriageDateFormatted || marriageDateNumeric,
     weddingDate: marriageDateFormatted || marriageDateNumeric,
-    wedding_date: marriageDateFormatted || marriageDateNumeric,
     anniversaryDate: marriageDateFormatted || marriageDateNumeric,
-    anniversary_date: marriageDateFormatted || marriageDateNumeric,
-    marriage: marriageDateFormatted || marriageDateNumeric,
-    wedding: marriageDateFormatted || marriageDateNumeric,
-    anniversary: marriageDateFormatted || marriageDateNumeric,
     marriageDay: mDay,
     marriageMonth: mMonth,
     marriageYear: mYear,
-    marriageNumeric: marriageDateNumeric,
     'تاریخ ازدواج': marriageDateFormatted || marriageDateNumeric,
     'تاریخ سالگرد ازدواج': marriageDateFormatted || marriageDateNumeric,
-    'سالگرد ازدواج': marriageDateFormatted || marriageDateNumeric,
 
     category: state.customer.category,
-    interest: state.customer.category,
     'دسته‌بندی': state.customer.category,
-    'علاقه‌مندی': state.customer.category,
 
     smsText: message,
-    sms_text: message,
-    message: message,
-    sms: message,
     'متن پیامک': message,
-    'پیامک': message,
 
+    storeName: state.storeSettings.name || 'گالری ظهورعطا',
     timestamp: new Date().toISOString(),
     dateFormatted: new Intl.DateTimeFormat('fa-IR', { dateStyle: 'medium', timeStyle: 'short' }).format(new Date()),
   };
@@ -721,7 +754,7 @@ async function submitAndSendSMS() {
     console.error('Google Sheets sync error:', error);
   }
 
-  // 2. Dispatch SMS based on configured method
+  // 2. Dispatch SMS
   const sendMethod = state.storeSettings.sendMethod || 'native_sms';
 
   if (sendMethod === 'api' || sendMethod === 'both') {
@@ -751,11 +784,13 @@ async function submitAndSendSMS() {
     navigator.vibrate([100, 50, 100]);
   }
 
-  submitBtn.disabled = false;
-  submitBtn.innerHTML = originalText;
+  if (submitBtn) {
+    submitBtn.disabled = false;
+    submitBtn.innerHTML = originalText;
+  }
   if (window.lucide) lucide.createIcons();
 
-  showToast('مشتری با موفقیت در گوگل‌شیت ثبت و پیامک آماده شد.', 'success');
+  showToast('مشتری با موفقیت در سیستم گالری ظهورعطا ثبت شد.', 'success');
 
   // Reset form and return to step 1
   resetForm();
@@ -764,7 +799,6 @@ async function submitAndSendSMS() {
 async function dispatchSmsViaApi(phone, message) {
   const { smsProvider, smsApiKey, smsApiUrl, senderNumber } = state.storeSettings;
   if (!smsApiKey && smsProvider !== 'custom') {
-    console.warn('No SMS API Key configured, fallback to native');
     return;
   }
 
@@ -796,14 +830,25 @@ async function dispatchSmsViaApi(phone, message) {
 }
 
 function resetForm() {
-  document.getElementById('customer-phone').value = '';
-  document.getElementById('customer-name').value = '';
-  document.getElementById('birth-day').value = '';
-  document.getElementById('birth-month').value = '';
-  document.getElementById('birth-year').value = '';
-  document.getElementById('marriage-day').value = '';
-  document.getElementById('marriage-month').value = '';
-  document.getElementById('marriage-year').value = '';
+  const phoneInput = document.getElementById('customer-phone');
+  if (phoneInput) phoneInput.value = '';
+
+  const nameInput = document.getElementById('customer-name');
+  if (nameInput) nameInput.value = '';
+
+  const bDay = document.getElementById('birth-day');
+  if (bDay) bDay.value = '';
+  const bMonth = document.getElementById('birth-month');
+  if (bMonth) bMonth.value = '';
+  const bYear = document.getElementById('birth-year');
+  if (bYear) bYear.value = '';
+
+  const mDay = document.getElementById('marriage-day');
+  if (mDay) mDay.value = '';
+  const mMonth = document.getElementById('marriage-month');
+  if (mMonth) mMonth.value = '';
+  const mYear = document.getElementById('marriage-year');
+  if (mYear) mYear.value = '';
 
   state.customer = {
     phone: '',
@@ -823,7 +868,7 @@ function resetForm() {
   loadCustomerHistory();
 }
 
-// --- Customer History & LocalStorage Mini CRM ---
+// Customer History Storage
 function saveCustomerToStorage(record) {
   const existing = getCustomersFromStorage();
   existing.unshift(record);
@@ -852,7 +897,7 @@ function loadCustomerHistory() {
   if (list.length === 0) {
     container.innerHTML = `
       <tr>
-        <td colspan="5" class="text-center py-8 text-slate-400 text-sm">
+        <td colspan="5" class="text-center py-8 text-slate-400 text-xs sm:text-sm">
           هنوز هیچ مشتری در سامانه ثبت نشده است.
         </td>
       </tr>
@@ -864,12 +909,12 @@ function loadCustomerHistory() {
     .map(
       (c, index) => `
       <tr class="border-b border-slate-100 hover:bg-amber-50/50 transition-all text-xs sm:text-sm">
-        <td class="py-3 px-3 text-slate-400">${toPersianDigits(index + 1)}</td>
-        <td class="py-3 px-3 font-semibold text-slate-800">${c.fullName}</td>
-        <td class="py-3 px-3 text-amber-700 font-mono" dir="ltr">${toPersianDigits(c.phone)}</td>
-        <td class="py-3 px-3 text-slate-500 hidden sm:table-cell">${c.dateFormatted}</td>
-        <td class="py-3 px-3 text-left">
-          <button onclick="viewCustomerDetail(${c.id})" class="px-2.5 py-1 rounded-lg bg-amber-100 text-amber-900 hover:bg-amber-200 text-xs font-semibold transition-all">
+        <td class="py-2.5 px-2.5 text-slate-400">${toPersianDigits(index + 1)}</td>
+        <td class="py-2.5 px-2.5 font-semibold text-slate-800">${c.fullName}</td>
+        <td class="py-2.5 px-2.5 text-amber-700 font-mono" dir="ltr">${toPersianDigits(c.phone)}</td>
+        <td class="py-2.5 px-2.5 text-slate-500 hidden sm:table-cell">${c.dateFormatted}</td>
+        <td class="py-2.5 px-2.5 text-left">
+          <button onclick="viewCustomerDetail(${c.id})" class="px-2 py-1 rounded-lg bg-amber-100 text-amber-900 hover:bg-amber-200 text-xs font-semibold transition-all">
             مشاهده متن
           </button>
         </td>
@@ -888,7 +933,7 @@ function viewCustomerDetail(id) {
 }
 
 function clearAllHistory() {
-  if (confirm('آیا از پاک کردن تمام سوابق مشتریان اطمینان دارید؟')) {
+  if (confirm('آیا از پاک کردن تمام سوابق مشتریان گالری ظهورعطا اطمینان دارید؟')) {
     localStorage.removeItem('gold_store_customers');
     loadCustomerHistory();
     showToast('تاریخچه مشتریان پاک شد.', 'info');
@@ -901,6 +946,7 @@ function openModal(id) {
   if (modal) {
     modal.classList.remove('hidden');
     modal.classList.add('flex');
+    document.body.style.overflow = 'hidden';
   }
 }
 
@@ -909,6 +955,7 @@ function closeModal(id) {
   if (modal) {
     modal.classList.add('hidden');
     modal.classList.remove('flex');
+    document.body.style.overflow = '';
   }
 }
 
@@ -925,9 +972,9 @@ function showToast(message, type = 'info') {
       ? 'bg-emerald-50 border-emerald-200 text-emerald-800 shadow-emerald-100'
       : 'bg-amber-50 border-amber-200 text-amber-900 shadow-amber-100';
 
-  toast.className = `p-3.5 rounded-2xl border shadow-lg flex items-center gap-3 animate-pop-in transition-all text-xs sm:text-sm font-medium ${bgClass}`;
+  toast.className = `p-3 sm:p-3.5 rounded-2xl border shadow-lg flex items-center gap-2.5 animate-pop-in transition-all text-xs sm:text-sm font-medium ${bgClass}`;
   toast.innerHTML = `
-    <i data-lucide="${type === 'error' ? 'alert-circle' : type === 'success' ? 'check-circle-2' : 'info'}" class="w-5 h-5 flex-shrink-0"></i>
+    <i data-lucide="${type === 'error' ? 'alert-circle' : type === 'success' ? 'check-circle-2' : 'info'}" class="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0"></i>
     <span>${message}</span>
   `;
 

@@ -2,8 +2,8 @@
 <html lang="fa" dir="rtl">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <title>باشگاه مشتریان طلا و جواهری زرین</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <title>باشگاه مشتریان گالری طلا و جواهر ظهورعطا</title>
   
   <!-- PWA Meta Tags & Manifest -->
   <link rel="manifest" href="manifest.json" />
@@ -11,9 +11,9 @@
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-  <meta name="apple-mobile-web-app-title" content="باشگاه مشتریان" />
-  <link rel="apple-touch-icon" href="icons/icon-192.png" />
-  <link rel="icon" type="image/png" href="icons/icon-192.png" />
+  <meta name="apple-mobile-web-app-title" content="گالری ظهورعطا" />
+  <link rel="apple-touch-icon" href="images/logo.jpg" />
+  <link rel="icon" type="image/jpeg" href="images/logo.jpg" />
 
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -50,88 +50,88 @@
 <body class="antialiased min-h-screen flex flex-col justify-between selection:bg-amber-400 selection:text-slate-950">
 
   <!-- Toast Notification Container -->
-  <div id="toast-container" class="fixed top-5 left-1/2 -translate-x-1/2 z-50 flex flex-col gap-2 w-[90%] max-w-md pointer-events-none"></div>
+  <div id="toast-container" class="fixed top-4 left-1/2 -translate-x-1/2 z-50 flex flex-col gap-2 w-[92%] max-w-sm pointer-events-none"></div>
 
   <!-- Main App Wrapper -->
-  <div class="w-full max-w-2xl mx-auto px-4 py-5 sm:py-8 flex-1 flex flex-col">
+  <div class="w-full max-w-xl mx-auto px-3 sm:px-4 py-3 sm:py-6 flex-1 flex flex-col">
     
-    <!-- Luxury Light Header -->
-    <header class="luxury-card rounded-3xl p-4 sm:p-5 mb-5 relative overflow-hidden">
-      <div class="flex items-center justify-between">
+    <!-- Luxury Header with Official Logo -->
+    <header class="luxury-card rounded-2xl sm:rounded-3xl p-3.5 sm:p-5 mb-4 sm:mb-5 relative overflow-hidden">
+      <div class="flex items-center justify-between gap-2">
+        
         <!-- Logo & Store Branding -->
-        <div class="flex items-center gap-3">
-          <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-amber-500 via-amber-300 to-yellow-100 p-[1px] shadow-md">
-            <div class="w-full h-full bg-white rounded-2xl flex items-center justify-center">
-              <i data-lucide="gem" class="w-6 h-6 text-amber-600"></i>
-            </div>
+        <div class="flex items-center gap-2.5 sm:gap-3 min-w-0">
+          <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-white p-0.5 shadow-sm border border-amber-300 flex-shrink-0 flex items-center justify-center overflow-hidden">
+            <img src="images/logo.jpg" alt="گالری ظهورعطا" class="store-logo-img" />
           </div>
-          <div>
-            <div class="flex items-center gap-2">
-              <h1 id="header-store-name" class="font-extrabold text-base sm:text-lg text-slate-900 tracking-tight">
-                گالری طلا و جواهری زرین
+          <div class="min-w-0">
+            <div class="flex items-center gap-1.5 flex-wrap">
+              <h1 id="header-store-name" class="font-extrabold text-sm sm:text-base text-slate-900 tracking-tight truncate">
+                گالری ظهورعطا
               </h1>
-              <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold bg-amber-100 text-amber-800 border border-amber-300">
-                VIP Club
+              <span class="inline-flex items-center px-1.5 py-0.5 rounded-full text-[9px] sm:text-[10px] font-bold bg-amber-100 text-amber-900 border border-amber-300 flex-shrink-0">
+                VIP
               </span>
             </div>
-            <p class="text-xs text-slate-500 mt-0.5">باشگاه مشتریان و سامانه هوشمند ارسال پیامک</p>
+            <p class="text-[11px] sm:text-xs text-slate-500 mt-0.5 truncate">باشگاه مشتریان و سامانه پیامک هوشمند</p>
           </div>
         </div>
 
         <!-- Quick Top Actions -->
-        <div class="flex items-center gap-1.5">
-          <!-- Install PWA Button -->
-          <button id="pwa-install-btn" onclick="promptPwaInstall()" class="hidden px-2.5 py-2 rounded-xl bg-amber-50 hover:bg-amber-100 text-amber-800 border border-amber-300 text-xs font-bold transition-all flex items-center gap-1.5" title="نصب اپلیکیشن روی گوشی">
-            <i data-lucide="download" class="w-3.5 h-3.5"></i>
-            <span class="hidden sm:inline">نصب اپلیکیشن</span>
+        <div class="flex items-center gap-1 sm:gap-1.5 flex-shrink-0">
+          <!-- Install PWA Button (Hidden by default, shown if supported) -->
+          <button id="pwa-install-btn" onclick="promptPwaInstall()" class="hidden p-2 sm:px-2.5 sm:py-2 rounded-xl bg-amber-50 hover:bg-amber-100 text-amber-800 border border-amber-300 text-xs font-bold transition-all items-center gap-1" title="نصب اپلیکیشن روی گوشی">
+            <i data-lucide="download" class="w-4 h-4"></i>
+            <span class="hidden md:inline">نصب</span>
           </button>
 
           <!-- History Button -->
-          <button onclick="openModal('history-modal')" class="p-2.5 rounded-xl bg-slate-50 hover:bg-slate-100 text-slate-700 hover:text-amber-700 border border-slate-200 transition-all relative" title="لیست مشتریان">
-            <i data-lucide="users" class="w-4 h-4"></i>
+          <button onclick="openModal('history-modal')" class="p-2 sm:p-2.5 rounded-xl bg-slate-50 hover:bg-slate-100 text-slate-700 hover:text-amber-800 border border-slate-200 transition-all relative" title="لیست مشتریان ثبت‌شده">
+            <i data-lucide="users" class="w-4 h-4 sm:w-4 sm:h-4"></i>
             <span id="history-count-badge" class="absolute -top-1 -right-1 w-4 h-4 bg-amber-500 text-slate-900 text-[10px] font-bold rounded-full flex items-center justify-center">0</span>
           </button>
           
           <!-- SMS Gateway & Settings Button -->
-          <button onclick="openModal('settings-modal')" class="p-2.5 rounded-xl bg-slate-50 hover:bg-slate-100 text-slate-700 hover:text-amber-700 border border-slate-200 transition-all" title="تنظیمات پنل پیامک و گالری">
-            <i data-lucide="settings" class="w-4 h-4"></i>
+          <button onclick="openModal('settings-modal')" class="p-2 sm:p-2.5 rounded-xl bg-slate-50 hover:bg-slate-100 text-slate-700 hover:text-amber-800 border border-slate-200 transition-all" title="تنظیمات پنل پیامک و گالری">
+            <i data-lucide="settings" class="w-4 h-4 sm:w-4 sm:h-4"></i>
           </button>
         </div>
+
       </div>
     </header>
 
     <!-- Progress Stepper Indicator -->
-    <div class="luxury-card rounded-2xl p-4 mb-5 shadow-sm">
-      <div class="flex items-center justify-between relative">
+    <div class="luxury-card rounded-2xl p-3 sm:p-4 mb-4 sm:mb-5 shadow-sm">
+      <div class="flex items-center justify-between relative px-1 sm:px-3">
         
         <!-- Step 1 Indicator -->
-        <div class="flex flex-col items-center gap-1.5 z-10">
-          <div id="step-indicator-1" class="w-10 h-10 rounded-full flex items-center justify-center bg-gold-gradient text-slate-900 font-bold ring-4 ring-amber-300/40 shadow-gold pulse-gold-light transition-all">
+        <div class="flex flex-col items-center gap-1 z-10 cursor-pointer" onclick="goToStep(1)">
+          <div id="step-indicator-1" class="w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center bg-gold-gradient text-slate-900 font-bold ring-4 ring-amber-300/40 shadow-gold pulse-gold-light transition-all flex-shrink-0 text-sm sm:text-base">
             ۱
           </div>
-          <span id="step-label-1" class="text-xs font-bold text-amber-900">شماره همراه</span>
+          <span id="step-label-1" class="text-[10px] sm:text-xs font-bold text-amber-900 text-center">شماره همراه</span>
         </div>
 
         <!-- Connecting Line 1-2 -->
-        <div id="step-line-1" class="flex-1 h-1 mx-2 rounded bg-slate-200 transition-all"></div>
+        <div id="step-line-1" class="flex-1 h-1 mx-1.5 sm:mx-2 rounded bg-slate-200 transition-all"></div>
 
         <!-- Step 2 Indicator -->
-        <div class="flex flex-col items-center gap-1.5 z-10">
-          <div id="step-indicator-2" class="w-10 h-10 rounded-full flex items-center justify-center bg-slate-100 text-slate-400 border border-slate-200 transition-all">
+        <div class="flex flex-col items-center gap-1 z-10 cursor-pointer" onclick="goToStep(2)">
+          <div id="step-indicator-2" class="w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center bg-slate-100 text-slate-400 border border-slate-200 transition-all flex-shrink-0 text-sm sm:text-base">
             ۲
           </div>
-          <span id="step-label-2" class="text-xs font-medium text-slate-400 hidden sm:block">مشخصات مشتری</span>
+          <span id="step-label-2" class="text-[10px] sm:text-xs font-medium text-slate-400 text-center">مشخصات</span>
         </div>
 
         <!-- Connecting Line 2-3 -->
-        <div id="step-line-2" class="flex-1 h-1 mx-2 rounded bg-slate-200 transition-all"></div>
+        <div id="step-line-2" class="flex-1 h-1 mx-1.5 sm:mx-2 rounded bg-slate-200 transition-all"></div>
 
         <!-- Step 3 Indicator -->
-        <div class="flex flex-col items-center gap-1.5 z-10">
-          <div id="step-indicator-3" class="w-10 h-10 rounded-full flex items-center justify-center bg-slate-100 text-slate-400 border border-slate-200 transition-all">
+        <div class="flex flex-col items-center gap-1 z-10 cursor-pointer" onclick="goToStep(3)">
+          <div id="step-indicator-3" class="w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center bg-slate-100 text-slate-400 border border-slate-200 transition-all flex-shrink-0 text-sm sm:text-base">
             ۳
           </div>
-          <span id="step-label-3" class="text-xs font-medium text-slate-400 hidden sm:block">متن پیامک و ارسال</span>
+          <span id="step-label-3" class="text-[10px] sm:text-xs font-medium text-slate-400 text-center">متن پیامک</span>
         </div>
 
       </div>
@@ -142,28 +142,24 @@
 
       <!-- ================= STEP 1: Phone Number & Touch Keypad ================= -->
       <section id="step-1-container" class="step-container active">
-        <div class="luxury-card rounded-3xl p-5 sm:p-7 shadow-lg">
+        <div class="luxury-card rounded-2xl sm:rounded-3xl p-4 sm:p-6 shadow-sm">
           
-          <div class="mb-5 text-center sm:text-right">
-            <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-100 text-amber-900 text-xs font-bold mb-2">
+          <div class="mb-4 text-center sm:text-right">
+            <div class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-amber-100 text-amber-900 text-[11px] font-bold mb-1.5">
               <i data-lucide="smartphone" class="w-3.5 h-3.5 text-amber-700"></i>
               <span>مرحله اول</span>
             </div>
-            <h2 class="text-lg sm:text-xl font-extrabold text-slate-900">شماره تلفن همراه مشتری</h2>
-            <p class="text-xs sm:text-sm text-slate-500 mt-0.5">
-              جهت ثبت عضویت در باشگاه و ارسال لینک فاکتور یا پیامک، شماره موبایل را وارد نمایید.
+            <h2 class="text-base sm:text-lg font-extrabold text-slate-900">شماره تلفن همراه مشتری</h2>
+            <p class="text-[11px] sm:text-xs text-slate-500 mt-0.5">
+              شماره موبایل را با صفحه کلید لمسی زیر یا کیبورد گوشی وارد کنید:
             </p>
           </div>
 
           <!-- Phone Display Box -->
-          <div class="mb-5">
-            <label class="block text-xs font-semibold text-slate-700 mb-2">
-              شماره موبایل مشتری <span class="text-rose-500">*</span>
-            </label>
-            
+          <div class="mb-4">
             <div class="relative flex items-center">
-              <div class="absolute left-3.5 flex items-center gap-1.5 text-xs font-semibold text-slate-500 bg-slate-100 px-2.5 py-1.5 rounded-xl border border-slate-200">
-                <span class="text-sm">🇮🇷</span>
+              <div class="absolute left-3 flex items-center gap-1 text-xs font-semibold text-slate-600 bg-slate-100 px-2 py-1 rounded-lg border border-slate-200 pointer-events-none">
+                <span class="text-xs">🇮🇷</span>
                 <span class="font-mono" dir="ltr">+98</span>
               </div>
 
@@ -173,51 +169,51 @@
                 inputmode="numeric"
                 placeholder="۰۹۱۲۳۴۵۶۷۸۹"
                 maxlength="11"
-                class="luxury-input-light w-full px-4 py-3.5 pl-24 rounded-2xl text-lg font-mono font-bold tracking-widest text-slate-900 placeholder:text-slate-400 focus:ring-2 focus:ring-amber-400/40"
+                class="luxury-input-light w-full px-3 py-3 pl-20 rounded-xl sm:rounded-2xl text-base sm:text-lg font-mono font-bold tracking-widest text-slate-900 placeholder:text-slate-400 focus:ring-2 focus:ring-amber-400/40"
                 dir="ltr"
               />
             </div>
 
             <!-- Error message -->
-            <p id="phone-error" class="hidden text-rose-600 text-xs mt-1.5 flex items-center gap-1">
-              <i data-lucide="alert-triangle" class="w-3.5 h-3.5"></i>
-              <span>شماره موبایل نامعتبر است! لطفاً ۱۱ رقم با پیش‌شماره ۰۹ وارد کنید.</span>
+            <p id="phone-error" class="hidden text-rose-600 text-[11px] sm:text-xs mt-1.5 flex items-center gap-1 font-medium">
+              <i data-lucide="alert-triangle" class="w-3.5 h-3.5 flex-shrink-0"></i>
+              <span>شماره موبایل نامعتبر است! لطفاً ۱۱ رقم با فرمت ۰۹ وارد کنید.</span>
             </p>
           </div>
 
           <!-- On-Screen Touch Numeric Keypad (Left-to-Right layout: 1 2 3 / 4 5 6 / 7 8 9 / ⌫ 0 C) -->
-          <div class="bg-amber-50/60 p-4 rounded-2xl border border-amber-200/70 mb-6">
-            <div class="flex items-center justify-between mb-3 px-1">
-              <span class="text-xs font-bold text-amber-900 flex items-center gap-1.5">
-                <i data-lucide="calculator" class="w-4 h-4 text-amber-700"></i>
-                <span>صفحه کلید لمسی اعداد:</span>
+          <div class="bg-amber-50/70 p-3 sm:p-4 rounded-2xl border border-amber-200/80 mb-5">
+            <div class="flex items-center justify-between mb-2.5 px-1">
+              <span class="text-xs font-bold text-amber-900 flex items-center gap-1">
+                <i data-lucide="calculator" class="w-3.5 h-3.5 text-amber-700"></i>
+                <span>صفحه کلید لمسی:</span>
               </span>
-              <span class="text-[11px] text-amber-700 font-medium">لمس مستقیم اعداد</span>
+              <span class="text-[10px] text-amber-700 font-medium">لمس سریع اعداد</span>
             </div>
 
             <!-- 4x3 Keypad Grid with LTR ordering -->
-            <div class="grid grid-cols-3 gap-2.5 max-w-sm mx-auto" dir="ltr">
+            <div class="grid grid-cols-3 gap-2 sm:gap-2.5 max-w-xs sm:max-w-sm mx-auto" dir="ltr">
               <!-- Row 1: 1, 2, 3 -->
-              <button type="button" onclick="appendDigit('1')" class="keypad-btn h-12 sm:h-14 rounded-2xl font-mono text-xl sm:text-2xl font-bold flex items-center justify-center">1</button>
-              <button type="button" onclick="appendDigit('2')" class="keypad-btn h-12 sm:h-14 rounded-2xl font-mono text-xl sm:text-2xl font-bold flex items-center justify-center">2</button>
-              <button type="button" onclick="appendDigit('3')" class="keypad-btn h-12 sm:h-14 rounded-2xl font-mono text-xl sm:text-2xl font-bold flex items-center justify-center">3</button>
+              <button type="button" onclick="appendDigit('1')" class="keypad-btn h-11 sm:h-13 rounded-xl sm:rounded-2xl font-mono text-xl sm:text-2xl font-bold flex items-center justify-center">1</button>
+              <button type="button" onclick="appendDigit('2')" class="keypad-btn h-11 sm:h-13 rounded-xl sm:rounded-2xl font-mono text-xl sm:text-2xl font-bold flex items-center justify-center">2</button>
+              <button type="button" onclick="appendDigit('3')" class="keypad-btn h-11 sm:h-13 rounded-xl sm:rounded-2xl font-mono text-xl sm:text-2xl font-bold flex items-center justify-center">3</button>
 
               <!-- Row 2: 4, 5, 6 -->
-              <button type="button" onclick="appendDigit('4')" class="keypad-btn h-12 sm:h-14 rounded-2xl font-mono text-xl sm:text-2xl font-bold flex items-center justify-center">4</button>
-              <button type="button" onclick="appendDigit('5')" class="keypad-btn h-12 sm:h-14 rounded-2xl font-mono text-xl sm:text-2xl font-bold flex items-center justify-center">5</button>
-              <button type="button" onclick="appendDigit('6')" class="keypad-btn h-12 sm:h-14 rounded-2xl font-mono text-xl sm:text-2xl font-bold flex items-center justify-center">6</button>
+              <button type="button" onclick="appendDigit('4')" class="keypad-btn h-11 sm:h-13 rounded-xl sm:rounded-2xl font-mono text-xl sm:text-2xl font-bold flex items-center justify-center">4</button>
+              <button type="button" onclick="appendDigit('5')" class="keypad-btn h-11 sm:h-13 rounded-xl sm:rounded-2xl font-mono text-xl sm:text-2xl font-bold flex items-center justify-center">5</button>
+              <button type="button" onclick="appendDigit('6')" class="keypad-btn h-11 sm:h-13 rounded-xl sm:rounded-2xl font-mono text-xl sm:text-2xl font-bold flex items-center justify-center">6</button>
 
               <!-- Row 3: 7, 8, 9 -->
-              <button type="button" onclick="appendDigit('7')" class="keypad-btn h-12 sm:h-14 rounded-2xl font-mono text-xl sm:text-2xl font-bold flex items-center justify-center">7</button>
-              <button type="button" onclick="appendDigit('8')" class="keypad-btn h-12 sm:h-14 rounded-2xl font-mono text-xl sm:text-2xl font-bold flex items-center justify-center">8</button>
-              <button type="button" onclick="appendDigit('9')" class="keypad-btn h-12 sm:h-14 rounded-2xl font-mono text-xl sm:text-2xl font-bold flex items-center justify-center">9</button>
+              <button type="button" onclick="appendDigit('7')" class="keypad-btn h-11 sm:h-13 rounded-xl sm:rounded-2xl font-mono text-xl sm:text-2xl font-bold flex items-center justify-center">7</button>
+              <button type="button" onclick="appendDigit('8')" class="keypad-btn h-11 sm:h-13 rounded-xl sm:rounded-2xl font-mono text-xl sm:text-2xl font-bold flex items-center justify-center">8</button>
+              <button type="button" onclick="appendDigit('9')" class="keypad-btn h-11 sm:h-13 rounded-xl sm:rounded-2xl font-mono text-xl sm:text-2xl font-bold flex items-center justify-center">9</button>
 
               <!-- Row 4: Single delete (⌫), 0, Clear all (C) -->
-              <button type="button" onclick="deleteDigit()" class="keypad-btn-special h-12 sm:h-14 rounded-2xl text-lg flex items-center justify-center text-rose-600 font-bold" title="پاک کردن یک رقم (تکی)">
+              <button type="button" onclick="deleteDigit()" class="keypad-btn-special h-11 sm:h-13 rounded-xl sm:rounded-2xl text-lg flex items-center justify-center text-rose-600 font-bold" title="پاک کردن یک رقم (تکی)">
                 <i data-lucide="delete" class="w-5 h-5"></i>
               </button>
-              <button type="button" onclick="appendDigit('0')" class="keypad-btn h-12 sm:h-14 rounded-2xl font-mono text-xl sm:text-2xl font-bold flex items-center justify-center">0</button>
-              <button type="button" onclick="clearPhone()" class="keypad-btn-special h-12 sm:h-14 rounded-2xl font-bold text-xs sm:text-sm flex items-center justify-center text-slate-700" title="پاک کردن تمام شماره">
+              <button type="button" onclick="appendDigit('0')" class="keypad-btn h-11 sm:h-13 rounded-xl sm:rounded-2xl font-mono text-xl sm:text-2xl font-bold flex items-center justify-center">0</button>
+              <button type="button" onclick="clearPhone()" class="keypad-btn-special h-11 sm:h-13 rounded-xl sm:rounded-2xl font-bold text-xs sm:text-xs flex items-center justify-center text-slate-700" title="پاک کردن تمام شماره">
                 پاک‌کردن کل
               </button>
             </div>
@@ -227,10 +223,10 @@
           <button
             type="button"
             onclick="goToStep(2)"
-            class="w-full py-4 px-6 rounded-2xl bg-gold-gradient text-slate-950 font-extrabold text-sm sm:text-base flex items-center justify-center gap-2 shadow-gold hover:opacity-95 active:scale-[0.99] transition-all"
+            class="w-full py-3.5 sm:py-4 px-4 rounded-xl sm:rounded-2xl bg-gold-gradient text-slate-950 font-extrabold text-sm sm:text-base flex items-center justify-center gap-2 shadow-gold hover:opacity-95 active:scale-[0.99] transition-all cursor-pointer"
           >
-            <span>مرحله بعد: ثبت مشخصات مشتری</span>
-            <i data-lucide="arrow-left" class="w-5 h-5"></i>
+            <span>مرحله بعد: مشخصات مشتری</span>
+            <i data-lucide="arrow-left" class="w-4 h-4 sm:w-5 sm:h-5"></i>
           </button>
 
         </div>
@@ -238,24 +234,24 @@
 
       <!-- ================= STEP 2: Customer Profile ================= -->
       <section id="step-2-container" class="step-container">
-        <div class="luxury-card rounded-3xl p-5 sm:p-7 shadow-lg">
+        <div class="luxury-card rounded-2xl sm:rounded-3xl p-4 sm:p-6 shadow-sm">
           
-          <div class="mb-5">
-            <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-100 text-amber-900 text-xs font-bold mb-2">
+          <div class="mb-4">
+            <div class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-amber-100 text-amber-900 text-[11px] font-bold mb-1.5">
               <i data-lucide="user-check" class="w-3.5 h-3.5 text-amber-700"></i>
               <span>مرحله دوم</span>
             </div>
-            <h2 class="text-lg sm:text-xl font-extrabold text-slate-900">مشخصات هویتی و مناسبت‌ها</h2>
-            <p class="text-xs sm:text-sm text-slate-500 mt-0.5">
-              ثبت تاریخ تولد و سالگرد ازدواج جهت ارسال پیامک تبریک و هدیه تخفیف ساخت طلا.
+            <h2 class="text-base sm:text-lg font-extrabold text-slate-900">مشخصات مشتری و مناسبت‌ها</h2>
+            <p class="text-[11px] sm:text-xs text-slate-500 mt-0.5">
+              ثبت اطلاعات جهت ارسال پیامک اختصاصی تبریک تولد، سالگرد و آفرها:
             </p>
           </div>
 
-          <div class="space-y-4">
+          <div class="space-y-3.5">
             
             <!-- Full Name (MANDATORY) -->
             <div>
-              <label for="customer-name" class="block text-xs font-semibold text-slate-700 mb-1.5">
+              <label for="customer-name" class="block text-xs font-semibold text-slate-700 mb-1">
                 نام و نام خانوادگی <span class="text-rose-500 font-bold">* (اجباری)</span>
               </label>
               <div class="relative">
@@ -263,44 +259,41 @@
                   type="text"
                   id="customer-name"
                   placeholder="مثال: مریم احمدی / علی رضایی"
-                  class="luxury-input-light w-full px-4 py-3 rounded-2xl text-sm text-slate-900 placeholder:text-slate-400 focus:ring-2 focus:ring-amber-400/40 font-medium"
+                  class="luxury-input-light w-full px-3 py-2.5 sm:py-3 rounded-xl text-sm text-slate-900 placeholder:text-slate-400 focus:ring-2 focus:ring-amber-400/40 font-medium"
                 />
-                <div class="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400">
+                <div class="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none">
                   <i data-lucide="user" class="w-4 h-4"></i>
                 </div>
               </div>
-              <p id="name-error" class="hidden text-rose-600 text-xs mt-1.5 flex items-center gap-1">
-                <i data-lucide="alert-triangle" class="w-3.5 h-3.5"></i>
+              <p id="name-error" class="hidden text-rose-600 text-[11px] sm:text-xs mt-1 flex items-center gap-1 font-medium">
+                <i data-lucide="alert-triangle" class="w-3.5 h-3.5 flex-shrink-0"></i>
                 <span>وارد کردن نام و نام خانوادگی برای ثبت در سیستم الزامی است.</span>
               </p>
             </div>
 
             <!-- Birth Date (OPTIONAL - Solar) -->
-            <div class="p-4 rounded-2xl bg-amber-50/40 border border-amber-200/70">
-              <div class="flex items-center justify-between mb-2.5">
-                <label class="text-xs font-bold text-amber-950 flex items-center gap-1.5">
-                  <i data-lucide="cake" class="w-4 h-4 text-amber-700"></i>
+            <div class="p-3 sm:p-3.5 rounded-xl bg-amber-50/50 border border-amber-200/70">
+              <div class="flex items-center justify-between mb-2">
+                <label class="text-xs font-bold text-amber-950 flex items-center gap-1">
+                  <i data-lucide="cake" class="w-3.5 h-3.5 text-amber-700"></i>
                   <span>تاریخ تولد مشتری</span>
                 </label>
-                <span class="text-[11px] text-slate-500 bg-white px-2 py-0.5 rounded-full border border-slate-200">اختیاری (ارسال هدیه تولد)</span>
+                <span class="text-[10px] text-slate-500 bg-white px-2 py-0.5 rounded-full border border-slate-200">اختیاری</span>
               </div>
 
-              <div class="grid grid-cols-3 gap-2">
+              <div class="grid grid-cols-3 gap-1.5 sm:gap-2">
                 <div>
-                  <label class="block text-[11px] text-slate-500 mb-1">روز</label>
-                  <select id="birth-day" class="luxury-select-light w-full px-2 py-2 rounded-xl text-xs text-slate-800 font-medium">
+                  <select id="birth-day" class="luxury-select-light w-full px-2 py-2 rounded-lg text-xs text-slate-800 font-medium">
                     <option value="">روز</option>
                   </select>
                 </div>
                 <div>
-                  <label class="block text-[11px] text-slate-500 mb-1">ماه</label>
-                  <select id="birth-month" class="luxury-select-light w-full px-2 py-2 rounded-xl text-xs text-slate-800 font-medium">
+                  <select id="birth-month" class="luxury-select-light w-full px-2 py-2 rounded-lg text-xs text-slate-800 font-medium">
                     <option value="">ماه</option>
                   </select>
                 </div>
                 <div>
-                  <label class="block text-[11px] text-slate-500 mb-1">سال</label>
-                  <select id="birth-year" class="luxury-select-light w-full px-2 py-2 rounded-xl text-xs text-slate-800 font-medium">
+                  <select id="birth-year" class="luxury-select-light w-full px-2 py-2 rounded-lg text-xs text-slate-800 font-medium">
                     <option value="">سال</option>
                   </select>
                 </div>
@@ -308,31 +301,28 @@
             </div>
 
             <!-- Wedding Anniversary Date (OPTIONAL - Solar) -->
-            <div class="p-4 rounded-2xl bg-amber-50/40 border border-amber-200/70">
-              <div class="flex items-center justify-between mb-2.5">
-                <label class="text-xs font-bold text-amber-950 flex items-center gap-1.5">
-                  <i data-lucide="heart-handshake" class="w-4 h-4 text-amber-700"></i>
+            <div class="p-3 sm:p-3.5 rounded-xl bg-amber-50/50 border border-amber-200/70">
+              <div class="flex items-center justify-between mb-2">
+                <label class="text-xs font-bold text-amber-950 flex items-center gap-1">
+                  <i data-lucide="heart-handshake" class="w-3.5 h-3.5 text-amber-700"></i>
                   <span>تاریخ سالگرد ازدواج</span>
                 </label>
-                <span class="text-[11px] text-slate-500 bg-white px-2 py-0.5 rounded-full border border-slate-200">اختیاری (تخفیف سالگرد)</span>
+                <span class="text-[10px] text-slate-500 bg-white px-2 py-0.5 rounded-full border border-slate-200">اختیاری</span>
               </div>
 
-              <div class="grid grid-cols-3 gap-2">
+              <div class="grid grid-cols-3 gap-1.5 sm:gap-2">
                 <div>
-                  <label class="block text-[11px] text-slate-500 mb-1">روز</label>
-                  <select id="marriage-day" class="luxury-select-light w-full px-2 py-2 rounded-xl text-xs text-slate-800 font-medium">
+                  <select id="marriage-day" class="luxury-select-light w-full px-2 py-2 rounded-lg text-xs text-slate-800 font-medium">
                     <option value="">روز</option>
                   </select>
                 </div>
                 <div>
-                  <label class="block text-[11px] text-slate-500 mb-1">ماه</label>
-                  <select id="marriage-month" class="luxury-select-light w-full px-2 py-2 rounded-xl text-xs text-slate-800 font-medium">
+                  <select id="marriage-month" class="luxury-select-light w-full px-2 py-2 rounded-lg text-xs text-slate-800 font-medium">
                     <option value="">ماه</option>
                   </select>
                 </div>
                 <div>
-                  <label class="block text-[11px] text-slate-500 mb-1">سال</label>
-                  <select id="marriage-year" class="luxury-select-light w-full px-2 py-2 rounded-xl text-xs text-slate-800 font-medium">
+                  <select id="marriage-year" class="luxury-select-light w-full px-2 py-2 rounded-lg text-xs text-slate-800 font-medium">
                     <option value="">سال</option>
                   </select>
                 </div>
@@ -341,23 +331,23 @@
 
             <!-- Category / Interest -->
             <div>
-              <label class="block text-xs font-semibold text-slate-700 mb-2">علاقه‌مندی اصلی مشتری در طلا و جواهر:</label>
+              <label class="block text-xs font-semibold text-slate-700 mb-1.5">علاقه‌مندی مشتری در طلا و جواهر:</label>
               <div class="grid grid-cols-2 gap-2 text-xs">
-                <label class="flex items-center gap-2 p-2.5 rounded-xl bg-white border border-slate-200 hover:border-amber-400 cursor-pointer transition-all">
+                <label class="flex items-center gap-2 p-2 sm:p-2.5 rounded-xl bg-white border border-slate-200 hover:border-amber-400 cursor-pointer transition-all">
                   <input type="radio" name="customer-interest" value="طلای سبک و کادویی" checked class="text-amber-600 focus:ring-amber-500" />
-                  <span class="text-slate-800 font-medium">طلای سبک و کادویی</span>
+                  <span class="text-slate-800 font-medium text-[11px] sm:text-xs">طلای سبک و کادویی</span>
                 </label>
-                <label class="flex items-center gap-2 p-2.5 rounded-xl bg-white border border-slate-200 hover:border-amber-400 cursor-pointer transition-all">
+                <label class="flex items-center gap-2 p-2 sm:p-2.5 rounded-xl bg-white border border-slate-200 hover:border-amber-400 cursor-pointer transition-all">
                   <input type="radio" name="customer-interest" value="النگو و تک‌پوش" class="text-amber-600 focus:ring-amber-500" />
-                  <span class="text-slate-800 font-medium">النگو و تک‌پوش</span>
+                  <span class="text-slate-800 font-medium text-[11px] sm:text-xs">النگو و تک‌پوش</span>
                 </label>
-                <label class="flex items-center gap-2 p-2.5 rounded-xl bg-white border border-slate-200 hover:border-amber-400 cursor-pointer transition-all">
+                <label class="flex items-center gap-2 p-2 sm:p-2.5 rounded-xl bg-white border border-slate-200 hover:border-amber-400 cursor-pointer transition-all">
                   <input type="radio" name="customer-interest" value="سرویس و جواهرات لوکس" class="text-amber-600 focus:ring-amber-500" />
-                  <span class="text-slate-800 font-medium">جواهرات لوکس</span>
+                  <span class="text-slate-800 font-medium text-[11px] sm:text-xs">جواهرات لوکس</span>
                 </label>
-                <label class="flex items-center gap-2 p-2.5 rounded-xl bg-white border border-slate-200 hover:border-amber-400 cursor-pointer transition-all">
+                <label class="flex items-center gap-2 p-2 sm:p-2.5 rounded-xl bg-white border border-slate-200 hover:border-amber-400 cursor-pointer transition-all">
                   <input type="radio" name="customer-interest" value="سرمایه‌گذاری و طلای کم‌اجرت" class="text-amber-600 focus:ring-amber-500" />
-                  <span class="text-slate-800 font-medium">طلای کم‌اجرت و شمش</span>
+                  <span class="text-slate-800 font-medium text-[11px] sm:text-xs">طلای کم‌اجرت و شمش</span>
                 </label>
               </div>
             </div>
@@ -365,20 +355,20 @@
           </div>
 
           <!-- Step 2 Buttons -->
-          <div class="mt-8 flex items-center gap-3">
+          <div class="mt-6 flex items-center gap-2 sm:gap-3">
             <button
               type="button"
               onclick="goToStep(1)"
-              class="w-1/3 py-3.5 px-4 rounded-2xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs sm:text-sm flex items-center justify-center gap-1.5 transition-all border border-slate-200"
+              class="w-1/3 py-3 sm:py-3.5 px-3 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs sm:text-sm flex items-center justify-center gap-1 transition-all border border-slate-200 cursor-pointer"
             >
               <i data-lucide="arrow-right" class="w-4 h-4"></i>
-              <span>مرحله قبل</span>
+              <span>قبلی</span>
             </button>
 
             <button
               type="button"
               onclick="goToStep(3)"
-              class="w-2/3 py-3.5 px-6 rounded-2xl bg-gold-gradient text-slate-950 font-extrabold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-gold hover:opacity-95 active:scale-[0.99] transition-all"
+              class="w-2/3 py-3 sm:py-3.5 px-4 rounded-xl bg-gold-gradient text-slate-950 font-extrabold text-xs sm:text-sm flex items-center justify-center gap-1.5 shadow-gold hover:opacity-95 active:scale-[0.99] transition-all cursor-pointer"
             >
               <span>مرحله بعد: تنظیم پیامک</span>
               <i data-lucide="arrow-left" class="w-4 h-4"></i>
@@ -390,51 +380,50 @@
 
       <!-- ================= STEP 3: SMS Compose & Send ================= -->
       <section id="step-3-container" class="step-container">
-        <div class="space-y-5">
+        <div class="space-y-4">
           
-          <div class="luxury-card rounded-3xl p-5 sm:p-7 shadow-lg">
+          <div class="luxury-card rounded-2xl sm:rounded-3xl p-4 sm:p-6 shadow-sm">
             
-            <div class="mb-5">
-              <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-100 text-amber-900 text-xs font-bold mb-2">
+            <div class="mb-3.5">
+              <div class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-amber-100 text-amber-900 text-[11px] font-bold mb-1.5">
                 <i data-lucide="message-square" class="w-3.5 h-3.5 text-amber-700"></i>
                 <span>مرحله سوم و نهایی</span>
               </div>
-              <h2 class="text-lg sm:text-xl font-extrabold text-slate-900">انتخاب یا نگارش متن پیامک</h2>
-              <p class="text-xs sm:text-sm text-slate-500 mt-0.5">
-                از میان پیشنهادات آماده و تبلیغاتی طلافروشی انتخاب کنید یا متن دلخواه را تایپ نمایید.
+              <h2 class="text-base sm:text-lg font-extrabold text-slate-900">انتخاب یا ویرایش متن پیامک</h2>
+              <p class="text-[11px] sm:text-xs text-slate-500 mt-0.5">
+                قالب پیامک را انتخاب کرده یا متن دلخواه را بنویسید:
               </p>
             </div>
 
-            <!-- Ready-made Templates Header -->
+            <!-- Pre-defined Templates List Grid -->
             <div class="mb-3 flex items-center justify-between">
-              <span class="text-xs font-bold text-amber-900 flex items-center gap-1.5">
-                <i data-lucide="sparkles" class="w-4 h-4 text-amber-600"></i>
-                <span>پیشنهادات آماده و تبلیغاتی طلافروشی:</span>
+              <span class="text-xs font-bold text-amber-900 flex items-center gap-1">
+                <i data-lucide="sparkles" class="w-3.5 h-3.5 text-amber-600"></i>
+                <span>پیشنهادات آماده گالری ظهورعطا:</span>
               </span>
-              <span class="text-[11px] text-slate-500">جهت انتخاب کلیک کنید</span>
+              <span class="text-[10px] text-slate-500">انتخاب سریع</span>
             </div>
 
-            <!-- Pre-defined Templates List Grid -->
-            <div id="templates-container" class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 mb-5 max-h-72 overflow-y-auto p-1">
+            <div id="templates-container" class="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-4 max-h-60 overflow-y-auto p-0.5">
               <!-- Populated via app.js -->
             </div>
 
             <!-- Custom Message Editor -->
-            <div class="space-y-2 pt-2 border-t border-slate-100">
-              <div class="flex items-center justify-between">
+            <div class="space-y-1.5 pt-2 border-t border-slate-100">
+              <div class="flex items-center justify-between flex-wrap gap-1">
                 <label for="sms-custom-text" class="text-xs font-bold text-slate-800">
-                  متن نهایی پیامک ارسالی (قابل ویرایش):
+                  متن پیامک ارسالی:
                 </label>
                 <!-- Quick Variables Chips -->
-                <div class="flex items-center gap-1 text-[11px]">
-                  <span class="text-slate-500 hidden sm:inline">درج متغیر:</span>
-                  <button type="button" onclick="insertVariable('{نام_مشتری}')" class="px-2 py-0.5 rounded-lg bg-amber-100 text-amber-900 hover:bg-amber-200 border border-amber-300 font-semibold">
+                <div class="flex items-center gap-1 text-[10px] sm:text-[11px]">
+                  <span class="text-slate-400 hidden sm:inline">متغیر:</span>
+                  <button type="button" onclick="insertVariable('{نام_مشتری}')" class="px-1.5 py-0.5 rounded bg-amber-100 text-amber-900 hover:bg-amber-200 border border-amber-300 font-semibold cursor-pointer">
                     {نام}
                   </button>
-                  <button type="button" onclick="insertVariable('{نام_فروشگاه}')" class="px-2 py-0.5 rounded-lg bg-amber-100 text-amber-900 hover:bg-amber-200 border border-amber-300 font-semibold">
+                  <button type="button" onclick="insertVariable('{نام_فروشگاه}')" class="px-1.5 py-0.5 rounded bg-amber-100 text-amber-900 hover:bg-amber-200 border border-amber-300 font-semibold cursor-pointer">
                     {گالری}
                   </button>
-                  <button type="button" onclick="insertVariable('{کد_تخفیف}')" class="px-2 py-0.5 rounded-lg bg-amber-100 text-amber-900 hover:bg-amber-200 border border-amber-300 font-semibold">
+                  <button type="button" onclick="insertVariable('{کد_تخفیف}')" class="px-1.5 py-0.5 rounded bg-amber-100 text-amber-900 hover:bg-amber-200 border border-amber-300 font-semibold cursor-pointer">
                     {تخفیف}
                   </button>
                 </div>
@@ -442,42 +431,42 @@
 
               <textarea
                 id="sms-custom-text"
-                rows="5"
+                rows="4"
                 placeholder="متن پیامک خود را اینجا بنویسید..."
-                class="luxury-input-light w-full p-4 rounded-2xl text-xs sm:text-sm text-slate-900 leading-relaxed focus:ring-2 focus:ring-amber-400/40 resize-y"
+                class="luxury-input-light w-full p-3 rounded-xl text-xs sm:text-sm text-slate-900 leading-relaxed focus:ring-2 focus:ring-amber-400/40 resize-y"
               ></textarea>
 
               <!-- Live Counter -->
-              <div class="flex items-center justify-between text-xs px-1 text-slate-500">
-                <div class="flex items-center gap-2">
-                  <span>تعداد کاراکتر: <strong id="char-count" class="text-amber-800 font-mono font-bold">0</strong></span>
+              <div class="flex items-center justify-between text-[11px] px-1 text-slate-500">
+                <div class="flex items-center gap-1.5">
+                  <span>کاراکتر: <strong id="char-count" class="text-amber-800 font-mono font-bold">0</strong></span>
                   <span class="text-slate-300">|</span>
                   <span>معادل: <strong id="parts-count" class="text-amber-800 font-mono font-bold">۱ پیامک</strong></span>
                 </div>
-                <span class="text-[11px] text-slate-400">استاندارد مخابرات ایران</span>
+                <span class="text-[10px] text-slate-400">استاندارد مخابرات</span>
               </div>
             </div>
 
           </div>
 
           <!-- Step 3 Action Buttons -->
-          <div class="flex items-center gap-3">
+          <div class="flex items-center gap-2 sm:gap-3">
             <button
               type="button"
               onclick="goToStep(2)"
-              class="w-1/3 py-4 px-4 rounded-2xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs sm:text-sm flex items-center justify-center gap-1.5 transition-all border border-slate-200"
+              class="w-1/3 py-3.5 px-3 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs sm:text-sm flex items-center justify-center gap-1 transition-all border border-slate-200 cursor-pointer"
             >
               <i data-lucide="arrow-right" class="w-4 h-4"></i>
-              <span>مرحله قبل</span>
+              <span>قبلی</span>
             </button>
 
             <button
               id="btn-submit-sms"
               type="button"
               onclick="submitAndSendSMS()"
-              class="w-2/3 py-4 px-6 rounded-2xl bg-gold-gradient text-slate-950 font-extrabold text-sm sm:text-base flex items-center justify-center gap-2 shadow-gold hover:opacity-95 active:scale-[0.99] transition-all"
+              class="w-2/3 py-3.5 sm:py-4 px-4 rounded-xl sm:rounded-2xl bg-gold-gradient text-slate-950 font-extrabold text-xs sm:text-sm flex items-center justify-center gap-1.5 shadow-gold hover:opacity-95 active:scale-[0.99] transition-all cursor-pointer"
             >
-              <i data-lucide="send" class="w-5 h-5"></i>
+              <i data-lucide="send" class="w-4 h-4"></i>
               <span>ثبت نهایی و ارسال پیامک</span>
             </button>
           </div>
@@ -488,40 +477,40 @@
     </main>
 
     <!-- Footer -->
-    <footer class="mt-8 text-center text-xs text-slate-500 py-3 border-t border-slate-200">
-      طراحی شده برای گالری‌های لوکس طلا و جواهر • سامانه مدیریت ارتباط با مشتریان (CRM)
+    <footer class="mt-6 text-center text-[11px] text-slate-400 py-2 border-t border-slate-200">
+      گالری طلا و جواهر ظهورعطا • سامانه مدیریت ارتباط با مشتریان (CRM)
     </footer>
 
   </div>
 
   <!-- ================= CUSTOMER HISTORY MODAL ================= -->
-  <div id="history-modal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 hidden items-center justify-center p-4">
-    <div class="bg-white rounded-3xl p-5 sm:p-7 max-w-2xl w-full border border-amber-200 shadow-2xl animate-pop-in max-h-[90vh] flex flex-col">
+  <div id="history-modal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 hidden items-center justify-center p-3 sm:p-4">
+    <div class="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-6 max-w-xl w-full border border-amber-200 shadow-2xl animate-pop-in max-h-[85vh] flex flex-col">
       
-      <div class="flex items-center justify-between pb-4 border-b border-slate-100 mb-4">
-        <div class="flex items-center gap-2.5">
-          <div class="w-9 h-9 rounded-xl bg-amber-100 text-amber-800 flex items-center justify-center">
-            <i data-lucide="database" class="w-5 h-5"></i>
+      <div class="flex items-center justify-between pb-3 border-b border-slate-100 mb-3">
+        <div class="flex items-center gap-2">
+          <div class="w-8 h-8 rounded-lg bg-amber-100 text-amber-800 flex items-center justify-center">
+            <i data-lucide="database" class="w-4 h-4"></i>
           </div>
           <div>
-            <h3 class="text-base font-bold text-slate-900">لیست مشتریان و سوابق پیامک‌ها</h3>
-            <p class="text-xs text-slate-500">ذخیره‌شده در گوگل‌شیت و حافظه مرورگر</p>
+            <h3 class="text-sm sm:text-base font-bold text-slate-900">سوابق مشتریان گالری ظهورعطا</h3>
+            <p class="text-[10px] sm:text-xs text-slate-400">ثبت‌شده در گوگل‌شیت و سیستم</p>
           </div>
         </div>
-        <button onclick="closeModal('history-modal')" class="p-2 rounded-xl text-slate-400 hover:text-slate-800 hover:bg-slate-100">
+        <button onclick="closeModal('history-modal')" class="p-1.5 rounded-lg text-slate-400 hover:text-slate-800 hover:bg-slate-100">
           <i data-lucide="x" class="w-5 h-5"></i>
         </button>
       </div>
 
-      <div class="flex-1 overflow-y-auto min-h-[220px]">
+      <div class="flex-1 overflow-y-auto min-h-[200px]">
         <table class="w-full text-right border-collapse">
           <thead>
-            <tr class="border-b border-slate-200 text-[11px] text-amber-900 bg-amber-50/70 font-bold">
-              <th class="py-2.5 px-3">#</th>
-              <th class="py-2.5 px-3">نام و نام خانوادگی</th>
-              <th class="py-2.5 px-3">شماره تماس</th>
-              <th class="py-2.5 px-3 hidden sm:table-cell">تاریخ و ساعت</th>
-              <th class="py-2.5 px-3 text-left">عملیات</th>
+            <tr class="border-b border-slate-200 text-[10px] sm:text-[11px] text-amber-900 bg-amber-50/70 font-bold">
+              <th class="py-2 px-2">#</th>
+              <th class="py-2 px-2">نام مشتری</th>
+              <th class="py-2 px-2">شماره تماس</th>
+              <th class="py-2 px-2 hidden sm:table-cell">تاریخ</th>
+              <th class="py-2 px-2 text-left">عملیات</th>
             </tr>
           </thead>
           <tbody id="history-table-body">
@@ -530,12 +519,12 @@
         </table>
       </div>
 
-      <div class="pt-4 border-t border-slate-100 mt-4 flex items-center justify-between">
+      <div class="pt-3 border-t border-slate-100 mt-3 flex items-center justify-between">
         <button onclick="clearAllHistory()" class="text-xs text-rose-600 hover:text-rose-700 font-semibold flex items-center gap-1">
-          <i data-lucide="trash-2" class="w-4 h-4"></i>
+          <i data-lucide="trash-2" class="w-3.5 h-3.5"></i>
           <span>پاک‌سازی تاریخچه</span>
         </button>
-        <button onclick="closeModal('history-modal')" class="px-5 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-bold">
+        <button onclick="closeModal('history-modal')" class="px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-bold">
           بستن
         </button>
       </div>
@@ -544,85 +533,85 @@
   </div>
 
   <!-- ================= SMS GATEWAY & SETTINGS MODAL ================= -->
-  <div id="settings-modal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 hidden items-center justify-center p-4">
-    <div class="bg-white rounded-3xl p-5 sm:p-7 max-w-lg w-full border border-amber-200 shadow-2xl animate-pop-in max-h-[90vh] overflow-y-auto">
+  <div id="settings-modal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 hidden items-center justify-center p-3 sm:p-4">
+    <div class="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-6 max-w-md w-full border border-amber-200 shadow-2xl animate-pop-in max-h-[88vh] overflow-y-auto">
       
-      <div class="flex items-center justify-between pb-4 border-b border-slate-100 mb-4">
+      <div class="flex items-center justify-between pb-3 border-b border-slate-100 mb-3">
         <div class="flex items-center gap-2">
           <i data-lucide="sliders" class="w-5 h-5 text-amber-600"></i>
-          <h3 class="text-base font-bold text-slate-900">تنظیمات پنل پیامک و اطلاعات فروشگاه</h3>
+          <h3 class="text-sm sm:text-base font-bold text-slate-900">تنظیمات پنل پیامک و گالری</h3>
         </div>
-        <button onclick="closeModal('settings-modal')" class="p-2 rounded-xl text-slate-400 hover:text-slate-800 hover:bg-slate-100">
+        <button onclick="closeModal('settings-modal')" class="p-1.5 rounded-lg text-slate-400 hover:text-slate-800 hover:bg-slate-100">
           <i data-lucide="x" class="w-5 h-5"></i>
         </button>
       </div>
 
-      <div class="space-y-4 text-xs">
+      <div class="space-y-3 text-xs">
         
         <!-- Store Name -->
         <div>
-          <label class="block text-slate-700 font-bold mb-1.5">نام گالری / طلافروشی:</label>
-          <input type="text" id="setting-store-name" class="luxury-input-light w-full px-3.5 py-2.5 rounded-xl text-sm text-slate-900 font-medium" />
+          <label class="block text-slate-700 font-bold mb-1">نام فروشگاه:</label>
+          <input type="text" id="setting-store-name" class="luxury-input-light w-full px-3 py-2 rounded-xl text-sm text-slate-900 font-medium" />
         </div>
 
         <!-- Sender Number -->
         <div>
-          <label class="block text-slate-700 font-bold mb-1.5">شماره خط ارسالی پیامک (سرشماره اختصاصی):</label>
-          <input type="text" id="setting-sender-number" class="luxury-input-light w-full px-3.5 py-2.5 rounded-xl text-sm text-slate-900 font-mono" dir="ltr" placeholder="مثال: 30007799" />
+          <label class="block text-slate-700 font-bold mb-1">شماره خط ارسالی پیامک (سرشماره اختصاصی):</label>
+          <input type="text" id="setting-sender-number" class="luxury-input-light w-full px-3 py-2 rounded-xl text-sm text-slate-900 font-mono" dir="ltr" placeholder="مثال: 30007799" />
         </div>
 
         <!-- SMS Provider Selector -->
-        <div class="p-3.5 bg-amber-50/70 rounded-2xl border border-amber-200">
-          <label class="block text-amber-950 font-bold mb-1.5">سامانه / پنل پیامکی شما:</label>
-          <select id="setting-sms-provider" onchange="toggleCustomUrlVisibility()" class="luxury-select-light w-full px-3 py-2.5 rounded-xl text-xs font-semibold text-slate-900">
+        <div class="p-3 bg-amber-50/70 rounded-xl border border-amber-200">
+          <label class="block text-amber-950 font-bold mb-1">سامانه پیامکی شما:</label>
+          <select id="setting-sms-provider" onchange="toggleCustomUrlVisibility()" class="luxury-select-light w-full px-2.5 py-2 rounded-lg text-xs font-semibold text-slate-900">
             <option value="kavenegar">کاوه‌نگار (Kavenegar)</option>
             <option value="smsir">پیامک دات‌آی‌آر (SMS.ir)</option>
             <option value="mellisms">ملی‌پیامک (MelliSMS)</option>
             <option value="farapayamak">فراپیامک (Farapayamak)</option>
-            <option value="custom">وب‌سرویس دلخواه / سفارشی (Custom API Endpoint)</option>
+            <option value="custom">وب‌سرویس سفارشی (Custom API Endpoint)</option>
           </select>
         </div>
 
         <!-- Custom Webhook URL (Conditional) -->
         <div id="custom-url-container" class="hidden">
-          <label class="block text-slate-700 font-bold mb-1.5">آدرس URL وب‌سرویس پنل پیامک:</label>
-          <input type="url" id="setting-sms-api-url" class="luxury-input-light w-full px-3.5 py-2.5 rounded-xl text-xs text-slate-900 font-mono" dir="ltr" placeholder="https://api.sms-service.com/send" />
+          <label class="block text-slate-700 font-bold mb-1">آدرس URL وب‌سرویس پنل پیامک:</label>
+          <input type="url" id="setting-sms-api-url" class="luxury-input-light w-full px-3 py-2 rounded-xl text-xs text-slate-900 font-mono" dir="ltr" placeholder="https://api.sms-service.com/send" />
         </div>
 
         <!-- API Key / Token -->
         <div>
-          <label class="block text-slate-700 font-bold mb-1.5">کلید API (API Key / Token پنل پیامک):</label>
-          <input type="password" id="setting-sms-api-key" class="luxury-input-light w-full px-3.5 py-2.5 rounded-xl text-xs text-slate-900 font-mono" dir="ltr" placeholder="توکن دریافتی از پنل پیامک..." />
+          <label class="block text-slate-700 font-bold mb-1">کلید API (API Key / Token):</label>
+          <input type="password" id="setting-sms-api-key" class="luxury-input-light w-full px-3 py-2 rounded-xl text-xs text-slate-900 font-mono" dir="ltr" placeholder="توکن دریافتی از پنل پیامک..." />
         </div>
 
         <!-- Optional Pattern Code -->
         <div>
-          <label class="block text-slate-700 font-bold mb-1.5">کد پترن / الگوی پیامک خدماتی (اختیاری):</label>
-          <input type="text" id="setting-sms-pattern" class="luxury-input-light w-full px-3.5 py-2.5 rounded-xl text-xs text-slate-900 font-mono" dir="ltr" placeholder="Pattern Code..." />
+          <label class="block text-slate-700 font-bold mb-1">کد پترن / الگوی پیامک (اختیاری):</label>
+          <input type="text" id="setting-sms-pattern" class="luxury-input-light w-full px-3 py-2 rounded-xl text-xs text-slate-900 font-mono" dir="ltr" placeholder="Pattern Code..." />
         </div>
 
         <!-- Sending Mode -->
         <div>
-          <label class="block text-slate-700 font-bold mb-1.5">نحوه اجرای ارسال پیامک هنگام ثبت مشتری:</label>
-          <select id="setting-send-method" class="luxury-select-light w-full px-3 py-2.5 rounded-xl text-xs font-semibold text-slate-900">
-            <option value="native_sms">باز کردن خودکار برنامه پیامک گوشی (SMS Protocol) - توصیه شده</option>
-            <option value="api">ارسال مستقیم سیستمی از طریق API پنل پیامک</option>
-            <option value="both">هر دو حالت (ارسال با API + باز کردن پیامک گوشی)</option>
+          <label class="block text-slate-700 font-bold mb-1">نحوه ارسال پیامک:</label>
+          <select id="setting-send-method" class="luxury-select-light w-full px-2.5 py-2 rounded-lg text-xs font-semibold text-slate-900">
+            <option value="native_sms">باز کردن خودکار برنامه پیامک گوشی (SMS Protocol) - سریع و آسان</option>
+            <option value="api">ارسال مستقیم با API پنل پیامک</option>
+            <option value="both">هر دو حالت همزمان (API + باز کردن پیامک گوشی)</option>
           </select>
         </div>
 
       </div>
 
-      <div class="mt-6 flex items-center justify-between gap-2 border-t border-slate-100 pt-4">
-        <button type="button" onclick="testSmsGatewayConnection()" class="px-3.5 py-2 rounded-xl bg-amber-100 hover:bg-amber-200 text-amber-900 font-bold text-xs">
-          تست اتصال به پنل
+      <div class="mt-5 flex items-center justify-between gap-2 border-t border-slate-100 pt-3">
+        <button type="button" onclick="testSmsGatewayConnection()" class="px-3 py-2 rounded-xl bg-amber-100 hover:bg-amber-200 text-amber-900 font-bold text-xs">
+          تست اتصال
         </button>
-        <div class="flex items-center gap-2">
-          <button onclick="closeModal('settings-modal')" class="px-4 py-2.5 rounded-xl bg-slate-100 text-slate-700 text-xs font-bold">
+        <div class="flex items-center gap-1.5">
+          <button onclick="closeModal('settings-modal')" class="px-3 py-2 rounded-xl bg-slate-100 text-slate-700 text-xs font-bold">
             انصراف
           </button>
-          <button onclick="saveSettings()" class="px-5 py-2.5 rounded-xl bg-gold-gradient text-slate-950 font-extrabold text-xs shadow-gold">
-            ذخیره تنظیمات
+          <button onclick="saveSettings()" class="px-4 py-2 rounded-xl bg-gold-gradient text-slate-950 font-extrabold text-xs shadow-gold">
+            ذخیره
           </button>
         </div>
       </div>
