@@ -1,5 +1,5 @@
 {
-  "name": "گالری طلا و جواهر ظهورعطا - باشگاه مشتریان",
+  "name": "گالری طلا و جواهر ظهورعطا",
   "short_name": "گالری ظهورعطا",
   "description": "سامانه مدیریت ارتباط با مشتریان و ارسال پیامک هوشمند گالری طلا و جواهر ظهورعطا",
   "start_url": "./index.html",
@@ -11,6 +11,12 @@
   "dir": "rtl",
   "lang": "fa",
   "icons": [
+    {
+      "src": "images/logo.jpg",
+      "sizes": "192x192 512x512",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    },
     {
       "src": "icons/icon-192.png",
       "sizes": "192x192",

@@ -12,8 +12,12 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="default" />
   <meta name="apple-mobile-web-app-title" content="گالری ظهورعطا" />
+  
+  <!-- iOS & Android Touch Icons with Official Logo -->
+  <link rel="apple-touch-icon" sizes="180x180" href="images/logo.jpg" />
   <link rel="apple-touch-icon" href="images/logo.jpg" />
   <link rel="icon" type="image/jpeg" href="images/logo.jpg" />
+  <link rel="shortcut icon" href="images/logo.jpg" />
 
   <style>
     /* Complete Self-Contained Styles (Zero CDN Dependencies) */
@@ -41,7 +45,7 @@
       width: 100%;
       max-width: 520px;
       margin: 0 auto;
-      padding: 12px 14px;
+      padding: 10px 14px;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
@@ -51,7 +55,7 @@
       background: #ffffff;
       border: 1px solid #eedfc2;
       border-radius: 20px;
-      padding: 15px;
+      padding: 14px;
       box-shadow: 0 4px 16px -4px rgba(0, 0, 0, 0.05);
       margin-bottom: 12px;
     }
@@ -271,6 +275,20 @@
       font-weight: bold;
       cursor: pointer;
     }
+
+    /* PWA Install Banner */
+    .pwa-banner {
+      background: linear-gradient(135deg, #fef9c3 0%, #fef08a 100%);
+      border: 1.5px solid #facc15;
+      border-radius: 16px;
+      padding: 10px 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 12px;
+      box-shadow: 0 4px 12px rgba(234, 179, 8, 0.15);
+    }
   </style>
 </head>
 <body>
@@ -282,7 +300,7 @@
       <!-- Header with Official Logo -->
       <header class="card header-card">
         <div style="display: flex; align-items: center; gap: 10px;">
-          <div style="width: 48px; height: 48px; border-radius: 14px; border: 1px solid #fcd34d; overflow: hidden; background: #fff; display: flex; align-items: center; justify-content: center;">
+          <div style="width: 48px; height: 48px; border-radius: 14px; border: 1px solid #fcd34d; overflow: hidden; background: #fff; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 6px rgba(0,0,0,0.05);">
             <img src="images/logo.jpg" alt="گالری ظهورعطا" style="width: 100%; height: 100%; object-fit: contain;" />
           </div>
           <div>
@@ -294,15 +312,34 @@
           </div>
         </div>
 
-        <div style="display: flex; align-items: center; gap: 6px;">
-          <button type="button" onclick="window.openHistoryModal()" style="width: 36px; height: 36px; border-radius: 10px; background: #f8fafc; border: 1px solid #e2e8f0; color: #334155; display: flex; align-items: center; justify-content: center; cursor: pointer;" title="لیست مشتریان">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+        <div style="display: flex; align-items: center; gap: 5px;">
+          <!-- Install App Header Button -->
+          <button type="button" onclick="window.installPwa()" style="padding: 6px 9px; border-radius: 10px; background: #fef3c7; border: 1px solid #facc15; color: #78350f; font-size: 11px; font-weight: bold; display: flex; align-items: center; gap: 4px; cursor: pointer;" title="نصب اپلیکیشن روی گوشی">
+            <span>📲</span>
+            <span>نصب وب‌اپ</span>
           </button>
+          
+          <button type="button" onclick="window.openHistoryModal()" style="width: 36px; height: 36px; border-radius: 10px; background: #f8fafc; border: 1px solid #e2e8f0; color: #334155; display: flex; align-items: center; justify-content: center; cursor: pointer;" title="لیست مشتریان">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+          </button>
+
           <button type="button" onclick="window.openSettingsModal()" style="width: 36px; height: 36px; border-radius: 10px; background: #f8fafc; border: 1px solid #e2e8f0; color: #334155; display: flex; align-items: center; justify-content: center; cursor: pointer;" title="تنظیمات پنل ملی پیامک">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
           </button>
         </div>
       </header>
+
+      <!-- Quick Install App Notice Banner -->
+      <div class="pwa-banner" onclick="window.installPwa()" style="cursor: pointer;">
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <img src="images/logo.jpg" style="width: 28px; height: 28px; border-radius: 8px; object-fit: contain; background: #fff;" />
+          <div>
+            <div style="font-size: 11px; font-weight: 800; color: #78350f;">نصب اپلیکیشن با لوگوی ظهورعطا</div>
+            <div style="font-size: 10px; color: #854d0e;">اجرا مستقیم روی صفحه اصلی گوشی بدون نیاز به مرورگر</div>
+          </div>
+        </div>
+        <span style="font-size: 11px; font-weight: bold; background: #fff; padding: 4px 8px; border-radius: 8px; color: #b45309; border: 1px solid #fde047;">نصب 📥</span>
+      </div>
 
       <!-- Stepper Progress Bar -->
       <div class="card stepper-bar">
@@ -595,8 +632,89 @@
     </div>
   </div>
 
+  <!-- PWA Install Guide Modal (Android + iOS Visual Instructions) -->
+  <div id="install-guide-modal" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.65); backdrop-filter: blur(4px); z-index: 1000; align-items: center; justify-content: center; padding: 14px;">
+    <div style="background: #fff; border-radius: 22px; width: 100%; max-width: 440px; padding: 18px; box-sizing: border-box; border: 1.5px solid #eedfc2; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
+      
+      <div style="text-align: center; margin-bottom: 14px;">
+        <div style="width: 64px; height: 64px; border-radius: 18px; border: 2px solid #fcd34d; overflow: hidden; margin: 0 auto 8px auto; box-shadow: 0 4px 10px rgba(212,175,55,0.25);">
+          <img src="images/logo.jpg" alt="گالری ظهورعطا" style="width: 100%; height: 100%; object-fit: contain; background: #fff;" />
+        </div>
+        <h3 style="font-size: 16px; font-weight: 900; color: #0f172a; margin-bottom: 2px;">نصب اپلیکیشن گالری ظهورعطا</h3>
+        <p style="font-size: 11px; color: #64748b;">افزودن آیکون اختصاصی به صفحه اصلی گوشی (PWA)</p>
+      </div>
+
+      <!-- Android Guide -->
+      <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 14px; padding: 10px 12px; margin-bottom: 10px; font-size: 12px;">
+        <div style="font-weight: bold; color: #0f172a; margin-bottom: 4px; display: flex; align-items: center; gap: 4px;">
+          <span>🤖</span>
+          <span>در گوشی‌های اندروید (Chrome / Samsung):</span>
+        </div>
+        <ol style="margin-right: 18px; color: #475569; font-size: 11px; line-height: 1.6;">
+          <li>دکمه <strong>سه نقطه (⋮)</strong> در بالای مرورگر را لمس کنید.</li>
+          <li>گزینه <strong>«افزودن به صفحه اصلی» (Add to Home screen)</strong> یا <strong>«نصب برنامه» (Install App)</strong> را بزنید.</li>
+        </ol>
+      </div>
+
+      <!-- iOS / Safari Guide -->
+      <div style="background: #fdfaf3; border: 1px solid #eedfc2; border-radius: 14px; padding: 10px 12px; margin-bottom: 14px; font-size: 12px;">
+        <div style="font-weight: bold; color: #78350f; margin-bottom: 4px; display: flex; align-items: center; gap: 4px;">
+          <span>🍎</span>
+          <span>در گوشی‌های آیفون (Safari iOS):</span>
+        </div>
+        <ol style="margin-right: 18px; color: #475569; font-size: 11px; line-height: 1.6;">
+          <li>دکمه <strong>اشتراک‌گذاری (Share 📤)</strong> در نوار پایین مرورگر Safari را لمس کنید.</li>
+          <li>صفحه را کمی پایین بکشید و گزینه <strong>«Add to Home Screen» ➕ (افزودن به صفحه اصلی)</strong> را انتخاب کنید.</li>
+          <li>در بالای صفحه دکمه <strong>Add (افزودن)</strong> را بزنید.</li>
+        </ol>
+      </div>
+
+      <button type="button" onclick="window.closeInstallGuideModal()" class="btn-gold" style="padding: 10px;">
+        متوجه شدم / بستن راهنما
+      </button>
+
+    </div>
+  </div>
+
   <!-- Inline Core JavaScript -->
   <script>
+    // --- PWA Installation Logic ---
+    let deferredPrompt = null;
+    window.addEventListener('beforeinstallprompt', (e) => {
+      e.preventDefault();
+      deferredPrompt = e;
+    });
+
+    window.installPwa = function() {
+      if (deferredPrompt) {
+        deferredPrompt.prompt();
+        deferredPrompt.userChoice.then((choice) => {
+          if (choice.outcome === 'accepted') {
+            alert('اپلیکیشن با موفقیت روی صفحه اصلی گوشی شما نصب شد.');
+          }
+          deferredPrompt = null;
+        });
+      } else {
+        window.openInstallGuideModal();
+      }
+    };
+
+    window.openInstallGuideModal = function() {
+      document.getElementById('install-guide-modal').style.display = 'flex';
+    };
+    window.closeInstallGuideModal = function() {
+      document.getElementById('install-guide-modal').style.display = 'none';
+    };
+
+    // Service worker registration
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./sw.js')
+          .then(reg => console.log('SW Registered', reg.scope))
+          .catch(err => console.log('SW Registration failed', err));
+      });
+    }
+
     // --- Application State ---
     window.APP_STATE = {
       currentStep: 1,
@@ -942,7 +1060,6 @@
       const melliSettings = JSON.parse(localStorage.getItem('melli_sms_settings') || '{}');
       if (melliSettings.sendMethod === 'melli_api' || melliSettings.sendMethod === 'both') {
         if (melliSettings.username && melliSettings.password && melliSettings.bodyId) {
-          // Dispatch to MelliSMS Shared/Pattern API
           fetch('https://rest.payamak-panel.com/api/SendSMS/BaseServiceNumber', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
