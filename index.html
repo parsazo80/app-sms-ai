@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
   <title>باشگاه مشتریان گالری طلا و جواهر ظهورعطا</title>
   
-  <!-- PWA Meta Tags & Manifest (Fully enabled for native Add to Home Screen) -->
+  <!-- PWA Meta Tags & Manifest -->
   <link rel="manifest" href="manifest.json" />
   <meta name="theme-color" content="#d4af37" />
   <meta name="mobile-web-app-capable" content="yes" />
@@ -377,7 +377,7 @@
           <input type="text" id="customer-name" placeholder="مثال: مریم احمدی" class="input-box" />
         </div>
 
-        <!-- Birth Date (Hardcoded HTML Options) -->
+        <!-- Birth Date (Full Range: 1300 to 1404) -->
         <div style="background: #fdfaf3; border: 1px solid #eedfc2; border-radius: 14px; padding: 10px; margin-bottom: 12px;">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
             <span style="font-size: 12px; font-weight: bold; color: #78350f;">🎂 تاریخ تولد مشتری</span>
@@ -386,13 +386,7 @@
           <div class="date-row">
             <select id="birth-day" class="select-box">
               <option value="">روز</option>
-              <option value="01">۱</option><option value="02">۲</option><option value="03">۳</option><option value="04">۴</option><option value="05">۵</option>
-              <option value="06">۶</option><option value="07">۷</option><option value="08">۸</option><option value="09">۹</option><option value="10">۱۰</option>
-              <option value="11">۱۱</option><option value="12">۱۲</option><option value="13">۱۳</option><option value="14">۱۴</option><option value="15">۱۵</option>
-              <option value="16">۱۶</option><option value="17">۱۷</option><option value="18">۱۸</option><option value="19">۱۹</option><option value="20">۲۰</option>
-              <option value="21">۲۱</option><option value="22">۲۲</option><option value="23">۲۳</option><option value="24">۲۴</option><option value="25">۲۵</option>
-              <option value="26">۲۶</option><option value="27">۲۷</option><option value="28">۲۸</option><option value="29">۲۹</option><option value="30">۳۰</option>
-              <option value="31">۳۱</option>
+              <!-- Populated via script and static options -->
             </select>
             <select id="birth-month" class="select-box">
               <option value="">ماه</option>
@@ -403,26 +397,12 @@
             </select>
             <select id="birth-year" class="select-box">
               <option value="">سال</option>
-              <option value="1403">۱۴۰۳</option><option value="1402">۱۴۰۲</option><option value="1401">۱۴۰۱</option><option value="1400">۱۴۰۰</option>
-              <option value="1399">۱۳۹۹</option><option value="1398">۱۳۹۸</option><option value="1397">۱۳۹۷</option><option value="1396">۱۳۹۶</option>
-              <option value="1395">۱۳۹۵</option><option value="1394">۱۳۹۴</option><option value="1393">۱۳۹۳</option><option value="1392">۱۳۹۲</option>
-              <option value="1391">۱۳۹۱</option><option value="1390">۱۳۹۰</option><option value="1389">۱۳۸۹</option><option value="1388">۱۳۸۸</option>
-              <option value="1387">۱۳۸۷</option><option value="1386">۱۳۸۶</option><option value="1385">۱۳۸۵</option><option value="1384">۱۳۸۴</option>
-              <option value="1383">۱۳۸۳</option><option value="1382">۱۳۸۲</option><option value="1381">۱۳۸۱</option><option value="1380">۱۳۸۰</option>
-              <option value="1379">۱۳۷۹</option><option value="1378">۱۳۷۸</option><option value="1377">۱۳۷۷</option><option value="1376">۱۳۷۶</option>
-              <option value="1375">۱۳۷۵</option><option value="1374">۱۳۷۴</option><option value="1373">۱۳۷۳</option><option value="1372">۱۳۷۲</option>
-              <option value="1371">۱۳۷۱</option><option value="1370">۱۳۷۰</option><option value="1369">۱۳۶۹</option><option value="1368">۱۳۶۸</option>
-              <option value="1367">۱۳۶۷</option><option value="1366">۱۳۶۶</option><option value="1365">۱۳۶۵</option><option value="1364">۱۳۶۴</option>
-              <option value="1363">۱۳۶۳</option><option value="1362">۱۳۶۲</option><option value="1361">۱۳۶۱</option><option value="1360">۱۳۶۰</option>
-              <option value="1359">۱۳۵۹</option><option value="1358">۱۳۵۸</option><option value="1357">۱۳۵۷</option><option value="1356">۱۳۵۶</option>
-              <option value="1355">۱۳۵۵</option><option value="1354">۱۳۵۴</option><option value="1353">۱۳۵۳</option><option value="1352">۱۳۵۲</option>
-              <option value="1351">۱۳۵۱</option><option value="1350">۱۳۵۰</option><option value="1345">۱۳۴۵</option><option value="1340">۱۳۴۰</option>
-              <option value="1335">۱۳۳۵</option><option value="1330">۱۳۳۰</option>
+              <!-- Full 1300 to 1404 populated -->
             </select>
           </div>
         </div>
 
-        <!-- Marriage Date (Hardcoded HTML Options) -->
+        <!-- Marriage Date (Full Range: 1300 to 1404) -->
         <div style="background: #fdfaf3; border: 1px solid #eedfc2; border-radius: 14px; padding: 10px; margin-bottom: 14px;">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
             <span style="font-size: 12px; font-weight: bold; color: #78350f;">💍 تاریخ سالگرد ازدواج</span>
@@ -431,13 +411,7 @@
           <div class="date-row">
             <select id="marriage-day" class="select-box">
               <option value="">روز</option>
-              <option value="01">۱</option><option value="02">۲</option><option value="03">۳</option><option value="04">۴</option><option value="05">۵</option>
-              <option value="06">۶</option><option value="07">۷</option><option value="08">۸</option><option value="09">۹</option><option value="10">۱۰</option>
-              <option value="11">۱۱</option><option value="12">۱۲</option><option value="13">۱۳</option><option value="14">۱۴</option><option value="15">۱۵</option>
-              <option value="16">۱۶</option><option value="17">۱۷</option><option value="18">۱۸</option><option value="19">۱۹</option><option value="20">۲۰</option>
-              <option value="21">۲۱</option><option value="22">۲۲</option><option value="23">۲۳</option><option value="24">۲۴</option><option value="25">۲۵</option>
-              <option value="26">۲۶</option><option value="27">۲۷</option><option value="28">۲۸</option><option value="29">۲۹</option><option value="30">۳۰</option>
-              <option value="31">۳۱</option>
+              <!-- Populated via script and static options -->
             </select>
             <select id="marriage-month" class="select-box">
               <option value="">ماه</option>
@@ -448,14 +422,7 @@
             </select>
             <select id="marriage-year" class="select-box">
               <option value="">سال</option>
-              <option value="1403">۱۴۰۳</option><option value="1402">۱۴۰۲</option><option value="1401">۱۴۰۱</option><option value="1400">۱۴۰۰</option>
-              <option value="1399">۱۳۹۹</option><option value="1398">۱۳۹۸</option><option value="1397">۱۳۹۷</option><option value="1396">۱۳۹۶</option>
-              <option value="1395">۱۳۹۵</option><option value="1394">۱۳۹۴</option><option value="1393">۱۳۹۳</option><option value="1392">۱۳۹۲</option>
-              <option value="1391">۱۳۹۱</option><option value="1390">۱۳۹۰</option><option value="1389">۱۳۸۹</option><option value="1388">۱۳۸۸</option>
-              <option value="1387">۱۳۸۷</option><option value="1386">۱۳۸۶</option><option value="1385">۱۳۸۵</option><option value="1384">۱۳۸۴</option>
-              <option value="1383">۱۳۸۳</option><option value="1382">۱۳۸۲</option><option value="1381">۱۳۸۱</option><option value="1380">۱۳۸۰</option>
-              <option value="1375">۱۳۷۵</option><option value="1370">۱۳۷۰</option><option value="1365">۱۳۶۵</option><option value="1360">۱۳۶۰</option>
-              <option value="1355">۱۳۵۵</option><option value="1350">۱۳۵۰</option>
+              <!-- Full 1300 to 1404 populated -->
             </select>
           </div>
         </div>
@@ -607,13 +574,90 @@
 
   <!-- Inline Core JavaScript -->
   <script>
-    // Service worker registration (Quiet PWA support)
+    // Persian Numbers Helper
+    function toPersianDigits(n) {
+      const f = ['۰','۱','۲','۳','۴','۵','۶','۷','۸','۹'];
+      return n.toString().replace(/\d/g, d => f[d]);
+    }
+
+    // Populate full Days (1-31) and Years (1300 to 1404)
+    function populateDateDropdowns() {
+      const days = ['birth-day', 'marriage-day'];
+      days.forEach(id => {
+        const sel = document.getElementById(id);
+        if (sel) {
+          sel.innerHTML = '<option value="">روز</option>';
+          for (let d = 1; d <= 31; d++) {
+            const val = d < 10 ? '0' + d : '' + d;
+            sel.innerHTML += `<option value="${val}">${toPersianDigits(d)}</option>`;
+          }
+        }
+      });
+
+      const years = ['birth-year', 'marriage-year'];
+      years.forEach(id => {
+        const sel = document.getElementById(id);
+        if (sel) {
+          sel.innerHTML = '<option value="">سال</option>';
+          for (let y = 1450; y >= 1300; y--) {
+            sel.innerHTML += `<option value="${y}">${toPersianDigits(y)}</option>`;
+          }
+        }
+      });
+    }
+
+    // Service worker registration
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
         navigator.serviceWorker.register('./sw.js')
           .then(reg => console.log('SW Registered', reg.scope))
           .catch(err => console.log('SW Registration failed', err));
       });
+    }
+
+    // --- Universal Resilient MelliSMS Sender (Mobile + Desktop) ---
+    async function sendMelliSmsUniversal(apiKey, from, to, text) {
+      const cleanApiKey = (apiKey || 'cc63e954690948d1914b1c1d48c2b323').trim();
+      const cleanFrom = (from || '50004001378267').trim();
+      const cleanTo = to.trim();
+      const cleanText = text.trim();
+
+      // Method 1: Local Node Server Proxy
+      try {
+        const res = await fetch('/api/send-melli-sms', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ apiKey: cleanApiKey, from: cleanFrom, to: cleanTo, text: cleanText })
+        });
+        if (res.ok) {
+          const data = await res.json();
+          if (data.success || data.recId) {
+            return { success: true, recId: data.recId, status: data.statusText || 'عملیات موفق' };
+          }
+        }
+      } catch (e) {
+        console.warn('Node server proxy unavailable, attempting direct connection from mobile...', e);
+      }
+
+      // Method 2: Direct Client-to-API Fallback (for Mobile PWA / Remote Access)
+      try {
+        const res = await fetch(`https://console.melipayamak.com/api/send/simple/${cleanApiKey}`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ from: cleanFrom, to: cleanTo, text: cleanText })
+        });
+        const data = await res.json();
+        const ok = res.ok || data.status === 'عملیات موفق' || !!data.recId;
+        return {
+          success: ok,
+          recId: data.recId || '',
+          status: data.status || (ok ? 'عملیات موفق' : 'خطا در ارسال'),
+          raw: data
+        };
+      } catch (err) {
+        console.error('Direct mobile fetch error:', err);
+        return { success: false, error: err.message };
+      }
     }
 
     // --- Application State ---
@@ -865,7 +909,7 @@
       document.getElementById('parts-count').textContent = parts + ' پیامک';
     };
 
-    // Submit & Send: Direct MeliPayamak Dispatch + Google Sheets
+    // Submit & Send: Resilient Dual-Dispatch (Direct API on Mobile/Desktop + Google Sheets)
     window.submitAndSendSMS = async function() {
       const textarea = document.getElementById('sms-custom-text');
       const message = textarea.value.trim();
@@ -952,33 +996,18 @@
         localStorage.setItem('zohour_customers', JSON.stringify(list));
       } catch (e) {}
 
-      // 2. Direct MeliPayamak Console Dispatch
+      // 2. Resilient MeliPayamak Dispatch (Works on both Phone and Desktop)
       const melliSettings = JSON.parse(localStorage.getItem('melli_sms_settings') || '{}');
       const sendMethod = melliSettings.sendMethod || 'melli_api';
-      let apiSuccess = false;
-      let recId = '';
+      let apiResult = { success: false };
 
       if (sendMethod === 'melli_api' || sendMethod === 'both') {
-        try {
-          const res = await fetch('/api/send-melli-sms', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              apiKey: melliSettings.apiKey || 'cc63e954690948d1914b1c1d48c2b323',
-              from: melliSettings.from || '50004001378267',
-              to: phone,
-              text: message
-            })
-          });
-          const apiResult = await res.json();
-          console.log('MeliPayamak Result:', apiResult);
-          if (apiResult.success) {
-            apiSuccess = true;
-            recId = apiResult.recId || '';
-          }
-        } catch (e) {
-          console.error('MeliPayamak API call error:', e);
-        }
+        apiResult = await sendMelliSmsUniversal(
+          melliSettings.apiKey || 'cc63e954690948d1914b1c1d48c2b323',
+          melliSettings.from || '50004001378267',
+          phone,
+          message
+        );
       }
 
       // 3. Open Native SMS Application if requested
@@ -991,10 +1020,10 @@
       btn.disabled = false;
       btn.innerHTML = 'ثبت نهایی و ارسال پیامک';
 
-      if (apiSuccess) {
-        alert(`✅ پیامک با موفقیت از خط ${melliSettings.from || '50004001378267'} به مشتری (${phone}) ارسال شد.\nشناسه پیگیری: ${recId}`);
+      if (apiResult.success) {
+        alert(`✅ پیامک با موفقیت از خط ${melliSettings.from || '50004001378267'} به مشتری (${phone}) ارسال شد.\nشناسه پیگیری: ${apiResult.recId || 'ثبت شد'}`);
       } else {
-        alert('مشتری با موفقیت در سیستم ثبت گردید.');
+        alert(`اطلاعات مشتری ثبت شد.\nوضعیت پیامک: ${apiResult.status || apiResult.error || 'در حال ارسال'}`);
       }
 
       // Reset Form
@@ -1057,7 +1086,7 @@
       window.closeSettingsModal();
     };
 
-    // Live Test SMS via Active Credentials
+    // Live Test SMS via Resilient Sender
     window.testMelliSmsLive = async function() {
       const testPhone = cleanPhone(document.getElementById('test-sms-phone').value);
       const apiKey = document.getElementById('setting-melli-apikey').value.trim() || 'cc63e954690948d1914b1c1d48c2b323';
@@ -1073,31 +1102,19 @@
       resBox.style.color = '#3b82f6';
       resBox.textContent = 'در حال ارسال پیامک تستی از خط ' + fromNumber + '...';
 
-      try {
-        const res = await fetch('/api/send-melli-sms', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            apiKey: apiKey,
-            from: fromNumber,
-            to: testPhone,
-            text: 'تست اتصال موفق سامانه باشگاه مشتریان گالری طلا و جواهر ظهورعطا ✨\nاینستاگرام: @zohourata.jewelry'
-          })
-        });
+      const data = await sendMelliSmsUniversal(
+        apiKey,
+        fromNumber,
+        testPhone,
+        'تست اتصال موفق سامانه باشگاه مشتریان گالری طلا و جواهر ظهورعطا ✨\nاینستاگرام: @zohourata.jewelry'
+      );
 
-        const data = await res.json();
-        console.log('Test response:', data);
-
-        if (data.success) {
-          resBox.style.color = '#15803d';
-          resBox.textContent = `✅ پیامک با موفقیت ارسال شد! شناسه پیگیری: ${data.recId}`;
-        } else {
-          resBox.style.color = '#b91c1c';
-          resBox.textContent = `❌ خطا: ${data.statusText || data.error || 'ارسال نشد'}`;
-        }
-      } catch (err) {
+      if (data.success) {
+        resBox.style.color = '#15803d';
+        resBox.textContent = `✅ پیامک با موفقیت ارسال شد! شناسه پیگیری: ${data.recId || 'موفق'}`;
+      } else {
         resBox.style.color = '#b91c1c';
-        resBox.textContent = `❌ خطای ارتباط با سرور: ${err.message}`;
+        resBox.textContent = `❌ خطا: ${data.status || data.error || 'ارسال نشد'}`;
       }
     };
 
@@ -1114,10 +1131,12 @@
 
     // Run on load
     document.addEventListener('DOMContentLoaded', () => {
+      populateDateDropdowns();
       window.renderTemplates();
       window.selectTemplate('purchase_thankyou');
       document.getElementById('sms-custom-text').addEventListener('input', window.updateSmsCount);
     });
+    populateDateDropdowns();
     window.renderTemplates();
   </script>
 </body>
