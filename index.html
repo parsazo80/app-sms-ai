@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
   <title>باشگاه مشتریان گالری طلا و جواهر ظهورعطا</title>
   
-  <!-- PWA Meta Tags & Manifest -->
+  <!-- PWA Meta Tags & Manifest (Fully enabled for native Add to Home Screen) -->
   <link rel="manifest" href="manifest.json" />
   <meta name="theme-color" content="#d4af37" />
   <meta name="mobile-web-app-capable" content="yes" />
@@ -45,7 +45,7 @@
       width: 100%;
       max-width: 520px;
       margin: 0 auto;
-      padding: 10px 14px;
+      padding: 12px 14px;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
@@ -55,7 +55,7 @@
       background: #ffffff;
       border: 1px solid #eedfc2;
       border-radius: 20px;
-      padding: 14px;
+      padding: 15px;
       box-shadow: 0 4px 16px -4px rgba(0, 0, 0, 0.05);
       margin-bottom: 12px;
     }
@@ -275,20 +275,6 @@
       font-weight: bold;
       cursor: pointer;
     }
-
-    /* PWA Install Banner */
-    .pwa-banner {
-      background: linear-gradient(135deg, #fef9c3 0%, #fef08a 100%);
-      border: 1.5px solid #facc15;
-      border-radius: 16px;
-      padding: 10px 12px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 8px;
-      margin-bottom: 12px;
-      box-shadow: 0 4px 12px rgba(234, 179, 8, 0.15);
-    }
   </style>
 </head>
 <body>
@@ -312,34 +298,16 @@
           </div>
         </div>
 
-        <div style="display: flex; align-items: center; gap: 5px;">
-          <!-- Install App Header Button -->
-          <button type="button" onclick="window.installPwa()" style="padding: 6px 9px; border-radius: 10px; background: #fef3c7; border: 1px solid #facc15; color: #78350f; font-size: 11px; font-weight: bold; display: flex; align-items: center; gap: 4px; cursor: pointer;" title="نصب اپلیکیشن روی گوشی">
-            <span>📲</span>
-            <span>نصب وب‌اپ</span>
-          </button>
-          
-          <button type="button" onclick="window.openHistoryModal()" style="width: 36px; height: 36px; border-radius: 10px; background: #f8fafc; border: 1px solid #e2e8f0; color: #334155; display: flex; align-items: center; justify-content: center; cursor: pointer;" title="لیست مشتریان">
-            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+        <div style="display: flex; align-items: center; gap: 6px;">
+          <button type="button" onclick="window.openHistoryModal()" style="width: 38px; height: 38px; border-radius: 12px; background: #f8fafc; border: 1px solid #e2e8f0; color: #334155; display: flex; align-items: center; justify-content: center; cursor: pointer;" title="لیست مشتریان">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
           </button>
 
-          <button type="button" onclick="window.openSettingsModal()" style="width: 36px; height: 36px; border-radius: 10px; background: #f8fafc; border: 1px solid #e2e8f0; color: #334155; display: flex; align-items: center; justify-content: center; cursor: pointer;" title="تنظیمات پنل ملی پیامک">
-            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+          <button type="button" onclick="window.openSettingsModal()" style="width: 38px; height: 38px; border-radius: 12px; background: #f8fafc; border: 1px solid #e2e8f0; color: #334155; display: flex; align-items: center; justify-content: center; cursor: pointer;" title="تنظیمات پنل ملی پیامک">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
           </button>
         </div>
       </header>
-
-      <!-- Quick Install App Notice Banner -->
-      <div class="pwa-banner" onclick="window.installPwa()" style="cursor: pointer;">
-        <div style="display: flex; align-items: center; gap: 8px;">
-          <img src="images/logo.jpg" style="width: 28px; height: 28px; border-radius: 8px; object-fit: contain; background: #fff;" />
-          <div>
-            <div style="font-size: 11px; font-weight: 800; color: #78350f;">نصب اپلیکیشن با لوگوی ظهورعطا</div>
-            <div style="font-size: 10px; color: #854d0e;">اجرا مستقیم روی صفحه اصلی گوشی بدون نیاز به مرورگر</div>
-          </div>
-        </div>
-        <span style="font-size: 11px; font-weight: bold; background: #fff; padding: 4px 8px; border-radius: 8px; color: #b45309; border: 1px solid #fde047;">نصب 📥</span>
-      </div>
 
       <!-- Stepper Progress Bar -->
       <div class="card stepper-bar">
@@ -502,18 +470,18 @@
       <section id="step-3-view" class="card step-view">
         <div style="margin-bottom: 10px;">
           <h2 style="font-size: 15px; font-weight: 800; margin: 0 0 4px 0; color: #0f172a;">انتخاب یا نگارش متن پیامک</h2>
-          <p style="font-size: 11px; color: #64748b; margin: 0;">از میان پیامک‌های تبلیغاتی یا متن دلخواه انتخاب کنید:</p>
+          <p style="font-size: 11px; color: #64748b; margin: 0;">از میان پیشنهادات آماده انتخاب کرده یا متن را ویرایش کنید:</p>
         </div>
 
         <!-- Filter Tabs -->
         <div style="display: flex; gap: 6px; margin-bottom: 8px;">
-          <button type="button" id="tab-promo" onclick="window.switchTab('promo')" class="tab-btn active">🔥 پیامک‌های تبلیغاتی</button>
-          <button type="button" id="tab-club" onclick="window.switchTab('club')" class="tab-btn">💎 پیامک‌های باشگاه و تبریک</button>
+          <button type="button" id="tab-club" onclick="window.switchTab('club')" class="tab-btn active">🛍️ تشکر از خرید و باشگاه</button>
+          <button type="button" id="tab-promo" onclick="window.switchTab('promo')" class="tab-btn">🔥 تبلیغاتی و اینستاگرام</button>
           <button type="button" id="tab-custom" onclick="window.switchTab('custom')" class="tab-btn">✍️ متن دلخواه</button>
         </div>
 
         <!-- Templates container -->
-        <div id="templates-container" style="max-height: 220px; overflow-y: auto; margin-bottom: 10px;"></div>
+        <div id="templates-container" style="max-height: 230px; overflow-y: auto; margin-bottom: 10px;"></div>
 
         <div style="margin-bottom: 12px;">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
@@ -571,13 +539,13 @@
     </div>
   </div>
 
-  <!-- Dedicated MelliSMS & Settings Modal -->
-  <div id="settings-modal" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 999; align-items: center; justify-content: center; padding: 12px;">
-    <div style="background: #fff; border-radius: 20px; width: 100%; max-width: 440px; max-height: 88vh; overflow-y: auto; padding: 16px; box-sizing: border-box;">
+  <!-- Dedicated MelliPayamak Console Settings Modal -->
+  <div id="settings-modal" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.65); z-index: 999; align-items: center; justify-content: center; padding: 12px;">
+    <div style="background: #fff; border-radius: 22px; width: 100%; max-width: 460px; max-height: 90vh; overflow-y: auto; padding: 16px; box-sizing: border-box; border: 1.5px solid #eedfc2;">
       <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #e2e8f0; padding-bottom: 8px; margin-bottom: 10px;">
         <div style="display: flex; align-items: center; gap: 6px;">
-          <span style="font-size: 16px;">📱</span>
-          <h3 style="font-size: 14px; font-weight: bold; margin: 0; color: #0f172a;">تنظیمات پیشرفته پنل ملی پیامک (MelliSMS)</h3>
+          <span style="font-size: 18px;">📱</span>
+          <h3 style="font-size: 14px; font-weight: bold; margin: 0; color: #0f172a;">پنل پیامک ملی‌پیامک (متصل و فعال)</h3>
         </div>
         <button type="button" onclick="window.closeSettingsModal()" style="border: none; background: transparent; font-size: 18px; cursor: pointer;">✕</button>
       </div>
@@ -588,125 +556,58 @@
           <input type="text" id="setting-store-name" value="گالری ظهورعطا" class="input-box" style="padding: 8px 10px; font-size: 13px;" />
         </div>
 
-        <div style="background: #fdfaf3; border: 1px solid #eedfc2; border-radius: 12px; padding: 10px;">
-          <div style="font-weight: bold; color: #78350f; margin-bottom: 8px;">🔑 اطلاعات ورود به ملی‌پیامک:</div>
-          
-          <div style="margin-bottom: 8px;">
-            <label class="field-label">نام کاربری ملی پیامک (Username / شماره همراه):</label>
-            <input type="text" id="setting-melli-user" placeholder="مثال: 0912xxxxxxx" class="input-box" style="padding: 7px 10px; font-size: 13px; font-family: monospace;" dir="ltr" />
+        <div style="background: #fdfaf3; border: 1.5px solid #eedfc2; border-radius: 14px; padding: 12px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+            <div style="font-weight: bold; color: #78350f;">🔑 مشخصات اکانت متصل شما در ملی‌پیامک</div>
+            <span style="font-size: 10px; background: #ecfdf5; color: #065f46; border: 1px solid #a7f3d0; padding: 2px 6px; border-radius: 6px; font-weight: bold;">🟢 متصل</span>
           </div>
 
           <div style="margin-bottom: 8px;">
-            <label class="field-label">رمز عبور یا کلید دسترسی (Password / API Key):</label>
-            <input type="password" id="setting-melli-pass" placeholder="رمز پنل ملی پیامک..." class="input-box" style="padding: 7px 10px; font-size: 13px; font-family: monospace;" dir="ltr" />
+            <label class="field-label">نام کاربری ملی‌پیامک:</label>
+            <input type="text" id="setting-melli-user" value="989193378267" class="input-box" style="padding: 7px 10px; font-size: 13px; font-family: monospace; background: #f8fafc;" dir="ltr" />
           </div>
 
           <div style="margin-bottom: 8px;">
-            <label class="field-label">شماره خط اختصاصی ملی پیامک (سرشماره):</label>
-            <input type="text" id="setting-sender-number" placeholder="مثال: 50004xxxx یا 3000xxxx" class="input-box" style="padding: 7px 10px; font-size: 13px; font-family: monospace;" dir="ltr" />
+            <label class="field-label">شماره خط اختصاصی ارسال‌کننده (from):</label>
+            <input type="text" id="setting-melli-from" value="50004001378267" class="input-box" style="padding: 7px 10px; font-size: 13px; font-family: monospace; font-weight: bold; color: #78350f;" dir="ltr" />
           </div>
 
           <div style="margin-bottom: 8px;">
-            <label class="field-label">کد الگو / پترن خدماتی ملی پیامک (BodyId):</label>
-            <input type="text" id="setting-melli-bodyid" placeholder="مثال: 12345 (جهت عبور از بلک‌لیست)" class="input-box" style="padding: 7px 10px; font-size: 13px; font-family: monospace;" dir="ltr" />
+            <label class="field-label">کلید API کنسول ملی‌پیامک (API Key):</label>
+            <input type="text" id="setting-melli-apikey" value="cc63e954690948d1914b1c1d48c2b323" class="input-box" style="padding: 7px 10px; font-size: 11px; font-family: monospace;" dir="ltr" />
           </div>
         </div>
 
         <div>
           <label class="field-label">روش ارسال پیامک:</label>
           <select id="setting-send-method" class="select-box" style="height: 38px;">
-            <option value="native_sms">باز کردن خودکار برنامه پیامک گوشی (پیشنهادی - سریع)</option>
-            <option value="melli_api">ارسال مستقیم با وب‌سرویس پترن ملی پیامک (API)</option>
-            <option value="both">هر دو همزمان (ارسال وب‌سرویس + باز کردن پیامک گوشی)</option>
+            <option value="melli_api">ارسال خودکار و مستقیم با وب‌سرویس ملی‌پیامک (پیشنهادی)</option>
+            <option value="both">ارسال با ملی‌پیامک + باز کردن پیامک گوشی همزمان</option>
+            <option value="native_sms">فقط باز کردن برنامه پیامک گوشی (SMS Native)</option>
           </select>
         </div>
-      </div>
 
-      <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #e2e8f0; padding-top: 10px; margin-top: 14px;">
-        <button type="button" onclick="window.testMelliSms()" style="padding: 7px 12px; border-radius: 8px; background: #fef3c7; color: #78350f; border: 1px solid #d4af37; font-size: 11px; font-weight: bold; cursor: pointer;">تست اتصال ملی‌پیامک</button>
-        <div style="display: flex; gap: 6px;">
-          <button type="button" onclick="window.closeSettingsModal()" style="padding: 7px 12px; border-radius: 8px; background: #f1f5f9; border: 1px solid #cbd5e1; font-size: 12px; cursor: pointer;">انصراف</button>
-          <button type="button" onclick="window.saveSettings()" class="btn-gold" style="width: auto; padding: 7px 14px; font-size: 12px;">ذخیره</button>
+        <!-- Live Test Section -->
+        <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 10px;">
+          <div style="font-weight: bold; color: #334155; margin-bottom: 6px;">🧪 تست ارسال آنی پیامک:</div>
+          <div style="display: flex; gap: 6px;">
+            <input type="tel" id="test-sms-phone" value="09193378267" placeholder="شماره موبایل گیرنده (09...)" class="input-box" style="padding: 6px 10px; font-size: 13px; font-family: monospace;" dir="ltr" />
+            <button type="button" onclick="window.testMelliSmsLive()" style="padding: 6px 12px; border-radius: 10px; background: #fef3c7; color: #78350f; border: 1px solid #d4af37; font-size: 11px; font-weight: bold; cursor: pointer; white-space: nowrap;">تست ارسال</button>
+          </div>
+          <div id="test-sms-result" style="margin-top: 6px; font-size: 11px; font-weight: bold; display: none;"></div>
         </div>
       </div>
-    </div>
-  </div>
 
-  <!-- PWA Install Guide Modal (Android + iOS Visual Instructions) -->
-  <div id="install-guide-modal" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.65); backdrop-filter: blur(4px); z-index: 1000; align-items: center; justify-content: center; padding: 14px;">
-    <div style="background: #fff; border-radius: 22px; width: 100%; max-width: 440px; padding: 18px; box-sizing: border-box; border: 1.5px solid #eedfc2; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
-      
-      <div style="text-align: center; margin-bottom: 14px;">
-        <div style="width: 64px; height: 64px; border-radius: 18px; border: 2px solid #fcd34d; overflow: hidden; margin: 0 auto 8px auto; box-shadow: 0 4px 10px rgba(212,175,55,0.25);">
-          <img src="images/logo.jpg" alt="گالری ظهورعطا" style="width: 100%; height: 100%; object-fit: contain; background: #fff;" />
-        </div>
-        <h3 style="font-size: 16px; font-weight: 900; color: #0f172a; margin-bottom: 2px;">نصب اپلیکیشن گالری ظهورعطا</h3>
-        <p style="font-size: 11px; color: #64748b;">افزودن آیکون اختصاصی به صفحه اصلی گوشی (PWA)</p>
+      <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #e2e8f0; padding-top: 10px; margin-top: 12px;">
+        <button type="button" onclick="window.closeSettingsModal()" style="padding: 7px 14px; border-radius: 8px; background: #f1f5f9; border: 1px solid #cbd5e1; font-size: 12px; cursor: pointer;">بستن</button>
+        <button type="button" onclick="window.saveSettings()" class="btn-gold" style="width: auto; padding: 7px 18px; font-size: 12px;">ذخیره تنظیمات</button>
       </div>
-
-      <!-- Android Guide -->
-      <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 14px; padding: 10px 12px; margin-bottom: 10px; font-size: 12px;">
-        <div style="font-weight: bold; color: #0f172a; margin-bottom: 4px; display: flex; align-items: center; gap: 4px;">
-          <span>🤖</span>
-          <span>در گوشی‌های اندروید (Chrome / Samsung):</span>
-        </div>
-        <ol style="margin-right: 18px; color: #475569; font-size: 11px; line-height: 1.6;">
-          <li>دکمه <strong>سه نقطه (⋮)</strong> در بالای مرورگر را لمس کنید.</li>
-          <li>گزینه <strong>«افزودن به صفحه اصلی» (Add to Home screen)</strong> یا <strong>«نصب برنامه» (Install App)</strong> را بزنید.</li>
-        </ol>
-      </div>
-
-      <!-- iOS / Safari Guide -->
-      <div style="background: #fdfaf3; border: 1px solid #eedfc2; border-radius: 14px; padding: 10px 12px; margin-bottom: 14px; font-size: 12px;">
-        <div style="font-weight: bold; color: #78350f; margin-bottom: 4px; display: flex; align-items: center; gap: 4px;">
-          <span>🍎</span>
-          <span>در گوشی‌های آیفون (Safari iOS):</span>
-        </div>
-        <ol style="margin-right: 18px; color: #475569; font-size: 11px; line-height: 1.6;">
-          <li>دکمه <strong>اشتراک‌گذاری (Share 📤)</strong> در نوار پایین مرورگر Safari را لمس کنید.</li>
-          <li>صفحه را کمی پایین بکشید و گزینه <strong>«Add to Home Screen» ➕ (افزودن به صفحه اصلی)</strong> را انتخاب کنید.</li>
-          <li>در بالای صفحه دکمه <strong>Add (افزودن)</strong> را بزنید.</li>
-        </ol>
-      </div>
-
-      <button type="button" onclick="window.closeInstallGuideModal()" class="btn-gold" style="padding: 10px;">
-        متوجه شدم / بستن راهنما
-      </button>
-
     </div>
   </div>
 
   <!-- Inline Core JavaScript -->
   <script>
-    // --- PWA Installation Logic ---
-    let deferredPrompt = null;
-    window.addEventListener('beforeinstallprompt', (e) => {
-      e.preventDefault();
-      deferredPrompt = e;
-    });
-
-    window.installPwa = function() {
-      if (deferredPrompt) {
-        deferredPrompt.prompt();
-        deferredPrompt.userChoice.then((choice) => {
-          if (choice.outcome === 'accepted') {
-            alert('اپلیکیشن با موفقیت روی صفحه اصلی گوشی شما نصب شد.');
-          }
-          deferredPrompt = null;
-        });
-      } else {
-        window.openInstallGuideModal();
-      }
-    };
-
-    window.openInstallGuideModal = function() {
-      document.getElementById('install-guide-modal').style.display = 'flex';
-    };
-    window.closeInstallGuideModal = function() {
-      document.getElementById('install-guide-modal').style.display = 'none';
-    };
-
-    // Service worker registration
+    // Service worker registration (Quiet PWA support)
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
         navigator.serviceWorker.register('./sw.js')
@@ -718,7 +619,7 @@
     // --- Application State ---
     window.APP_STATE = {
       currentStep: 1,
-      currentTab: 'promo',
+      currentTab: 'club',
       customer: {
         phone: '',
         fullName: '',
@@ -731,56 +632,56 @@
         smsText: ''
       },
       templates: [
-        // 1. Promotional & Sales Templates
+        // 1. Club & Greeting Templates
         {
-          id: 'promo_auction',
-          type: 'promo',
-          title: '🔥 حراج طلای بدون اجرت و سرمایه‌گذاری',
-          text: '🔥 حراج استثنایی در گالری ظهورعطا!\nجناب/سرکار {نام_مشتری} عزیز، به مدت ۳ روز کلیه مصنوعات طلا، النگو و شمش‌های گرمی بدون اجرت و با کمترین درصد تقدیم شما می‌گردد.\nفرصت طلایی پس‌انداز و سرمایه‌گذاری!\nگالری طلا و جواهر ظهورعطا'
-        },
-        {
-          id: 'promo_weekend',
-          type: 'promo',
-          title: '✨ تخفیف ۵۰٪ اجرت ساخت (آخر هفته VIP)',
-          text: 'درخشش بیشتر با هزینه کمتر ✨\n{نام_مشتری} گرامی، به عنوان عضو VIP باشگاه مشتریان گالری ظهورعطا، پنجشنبه و جمعه این هفته از ۵۰٪ تخفیف در اجرت ساخت کلیه سرویس‌ها و نیم‌ست‌های مدرن بهره‌مند شوید.\nکد تخفیف: ZOHOUR-VIP50'
-        },
-        {
-          id: 'promo_collection',
-          type: 'promo',
-          title: '👑 رونمایی کالکشن جدید طلا و جواهر',
-          text: 'جدیدترین‌های دنیای طلا و جواهر رسید!\n{نام_مشتری} عزیز، از کالکشن بی‌نظیر پاییزه گالری ظهورعطا شامل لوکس‌ترین دستبندهای مینیمال و ست‌های کادویی دیدن فرمایید.\nگالری طلا و جواهر ظهورعطا'
-        },
-        {
-          id: 'promo_exchange',
-          type: 'promo',
-          title: '🔄 طرح تعویض طلای کهنه با نو بدون کسر وزن',
-          text: '{نام_مشتری} ارجمند، طرح تعویض طلای مستعمل با جدیدترین کارهای لوکس با بالاترین قیمت روز و کمترین کارمزد در گالری ظهورعطا آغاز شد.\nمشتاق دیدار شما هستیم.'
-        },
-
-        // 2. Club & Greeting Templates
-        {
-          id: 'purchase',
+          id: 'purchase_thankyou',
           type: 'club',
-          title: '🛍️ تبریک خرید و ثبت فاکتور مشتری',
-          text: 'مشتری گرامی {نام_مشتری}، از خرید و حسن اعتماد شما به گالری ظهورعطا صمیمانه سپاسگزاریم.\nفاکتور شما ثبت و ۱۰۰ امتیاز به حساب باشگاه مشتریان شما اضافه شد.\nبا آرزوی درخشش همیشگی شما.'
+          title: '🛍️ تشکر از خرید و ثبت عضویت باشگاه',
+          text: 'مشتری گرامی {نام_مشتری}،\nاز خرید و حسن اعتماد شما به {نام_فروشگاه} صمیمانه سپاسگزاریم ✨\nفاکتور شما ثبت و امتیاز باشگاه مشتریان برای شما فعال گردید.\nبا آرزوی درخشش همیشگی شما.\nگالری طلا و جواهر ظهورعطا'
         },
         {
           id: 'birthday',
           type: 'club',
-          title: '🎂 هدیه سالروز تولد (تخفیف ساخت)',
-          text: 'جناب/سرکار {نام_مشتری} عزیز، سالروز تولدتان فرخنده باد! ✨\nبه پاس همراهی شما، هدیه گالری ظهورعطا شامل ۲۵٪ تخفیف در اجرت ساخت کلیه مصنوعات طلا تا پایان این هفته برای شما فعال گردید.\nکد هدیه: HBD-ZOHOUR25'
+          title: '🎂 هدیه سالروز تولد (تخفیف ساخت طلا)',
+          text: 'جناب/سرکار {نام_مشتری} عزیز، سالروز تولدتان فرخنده باد! ✨\nبه پاس همراهی ارزشمندتان، هدیه {نام_فروشگاه} شامل ۲۵٪ تخفیف در اجرت ساخت کلیه مصنوعات طلا تا پایان این هفته برای شما فعال گردید.\nکد هدیه: HBD-ZOHOUR25\nلحظاتتان همواره درخشان باد.'
         },
         {
           id: 'anniversary',
           type: 'club',
           title: '💍 تبریک سالگرد ازدواج',
-          text: '{نام_مشتری} گرامی، سالگرد پیوند پرمهرتان مبارک باد 💍\nآرزومندیم زندگیتان همواره همچون طلا پایدار و درخشان باشد.\nبرای انتخاب هدیه سالگرد، از ۲۰٪ تخفیف اجرت ساخت ست و نیم‌ست‌های گالری ظهورعطا استفاده نمایید.'
+          text: '{نام_مشتری} گرامی، سالگرد پیوند پرمهرتان مبارک باد 💍\nآرزومندیم زندگیتان همواره همچون طلا پایدار و درخشان باشد.\nبرای انتخاب یادبود سالگرد، از ۲۰٪ تخفیف اجرت ساخت ست و نیم‌ست‌های {نام_فروشگاه} استفاده نمایید.'
         },
         {
-          id: 'service',
+          id: 'service_free',
           type: 'club',
-          title: '💎 سرویس و آبکاری رایگان طلا',
-          text: '{نام_مشتری} ارجمند، به مناسبت عضویت در باشگاه مشتریان گالری ظهورعطا، سرویس شستشو، آبکاری و بررسی نگین کلیه طلا و جواهرات شما این ماه به صورت کاملاً رایگان انجام می‌شود.'
+          title: '💎 سرویس، شستشو و آبکاری رایگان طلا',
+          text: '{نام_مشتری} ارجمند، به عنوان عضو ویژه باشگاه مشتریان {نام_فروشگاه}، سرویس شستشو، بررسی نگین و آبکاری کلیه طلا و جواهرات شما این ماه کاملاً رایگان انجام می‌پذیرد.\nمشتاق دیدار شما هستیم.'
+        },
+
+        // 2. Promotional & Instagram Templates
+        {
+          id: 'instagram_promo',
+          type: 'promo',
+          title: '📸 لینک اینستاگرام و جدیدترین کالکشن‌ها',
+          text: '{نام_مشتری} عزیز و همراه گرامی {نام_فروشگاه} ✨\nبرای مشاهده جدیدترین مدل‌های طلا و جواهر لوکس، النگوهای بدون اجرت و استعلام قیمت لحظه‌ای، پیج اینستاگرام ما را دنبال کنید:\ninstagram.com/zohourata.jewelry\nآیدی: @zohourata.jewelry'
+        },
+        {
+          id: 'promo_auction',
+          type: 'promo',
+          title: '🔥 حراج طلای بدون اجرت و سرمایه‌گذاری',
+          text: '🔥 حراج استثنایی در {نام_فروشگاه}!\nجناب/سرکار {نام_مشتری} عزیز، به مدت ۳ روز کلیه مصنوعات طلا، النگو و شمش‌های گرمی بدون اجرت و با کمترین درصد تقدیم شما می‌گردد.\nفرصت طلایی پس‌انداز و سرمایه‌گذاری!\nگالری طلا و جواهر ظهورعطا\nاینستاگرام: @zohourata.jewelry'
+        },
+        {
+          id: 'promo_weekend',
+          type: 'promo',
+          title: '✨ تخفیف ۵۰٪ اجرت ساخت (آخر هفته VIP)',
+          text: 'درخشش بیشتر با هزینه کمتر ✨\n{نام_مشتری} گرامی، به عنوان عضو VIP باشگاه مشتریان {نام_فروشگاه}، پنجشنبه و جمعه این هفته از ۵۰٪ تخفیف در اجرت ساخت کلیه سرویس‌ها و نیم‌ست‌های مدرن بهره‌مند شوید.\nکد تخفیف: ZOHOUR-VIP50'
+        },
+        {
+          id: 'promo_exchange',
+          type: 'promo',
+          title: '🔄 طرح تعویض طلای کهنه با نو بدون کسر وزن',
+          text: '{نام_مشتری} ارجمند، طرح تعویض طلای مستعمل با جدیدترین کارهای لوکس با بالاترین قیمت روز و کمترین کارمزد در {نام_فروشگاه} آغاز شد.\nمشتاق دیدار شما هستیم.'
         },
 
         // 3. Custom
@@ -788,7 +689,7 @@
           id: 'custom_msg',
           type: 'custom',
           title: '✍️ متن دلخواه و اختصاصی',
-          text: 'مشتری گرامی {نام_مشتری}، با سلام و احترام از طرف گالری ظهورعطا...\n[متن پیامک دلخواه خود را اینجا بنویسید]'
+          text: 'مشتری گرامی {نام_مشتری}، با سلام و احترام از طرف {نام_فروشگاه}...\n[متن پیامک دلخواه خود را اینجا بنویسید]'
         }
       ]
     };
@@ -857,7 +758,7 @@
           window.APP_STATE.customer.marriageMonth = document.getElementById('marriage-month').value;
           window.APP_STATE.customer.marriageYear = document.getElementById('marriage-year').value;
           
-          window.selectTemplate('promo_auction');
+          window.selectTemplate('purchase_thankyou');
         }
       }
 
@@ -896,7 +797,7 @@
       window.scrollTo(0, 0);
     };
 
-    // Tab switcher (Promotional, Club, Custom)
+    // Tab switcher
     window.switchTab = function(tabName) {
       window.APP_STATE.currentTab = tabName;
       document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
@@ -964,7 +865,7 @@
       document.getElementById('parts-count').textContent = parts + ' پیامک';
     };
 
-    // Submit & Send: Full Dual-Dispatch to Google Sheets (URL Params + JSON Body) & MelliSMS
+    // Submit & Send: Direct MeliPayamak Dispatch + Google Sheets
     window.submitAndSendSMS = async function() {
       const textarea = document.getElementById('sms-custom-text');
       const message = textarea.value.trim();
@@ -975,7 +876,7 @@
 
       const btn = document.getElementById('btn-submit-sms');
       btn.disabled = true;
-      btn.innerHTML = 'در حال ثبت در گوگل‌شیت...';
+      btn.innerHTML = 'در حال ارسال پیامک و ثبت در سیستم...';
 
       // Read fresh DOM date values directly
       const bDay = document.getElementById('birth-day').value;
@@ -991,7 +892,7 @@
       const phone = window.APP_STATE.customer.phone;
       const fullName = window.APP_STATE.customer.fullName;
 
-      // 1. Prepare Google Sheets Payload with ALL possible parameter keys
+      // 1. Post to Google Sheets Webhook
       const record = {
         phone: phone,
         mobile: phone,
@@ -1011,7 +912,6 @@
         timestamp: new Date().toISOString()
       };
 
-      // Also append as URL query parameters so ANY Google Apps script (GET/POST/e.parameter) gets it:
       const qParams = new URLSearchParams();
       qParams.append('phone', phone);
       qParams.append('mobile', phone);
@@ -1031,16 +931,12 @@
 
       const googleUrl = 'https://script.google.com/macros/s/AKfycbwj9nEjFkyUudeXEqPxXZ6HvZZiqdwcT-cV65-beuy7F0zPobTXRrTwLakYkPkd5uo/exec?' + qParams.toString();
 
-      try {
-        await fetch(googleUrl, {
-          method: 'POST',
-          mode: 'no-cors',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(record)
-        });
-      } catch (err) {
-        console.error('Google Sheets POST:', err);
-      }
+      fetch(googleUrl, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(record)
+      }).catch(err => console.error('Google Sheets POST:', err));
 
       // Save to local storage
       try {
@@ -1056,32 +952,50 @@
         localStorage.setItem('zohour_customers', JSON.stringify(list));
       } catch (e) {}
 
-      // 2. MelliSMS API Dispatch if enabled
+      // 2. Direct MeliPayamak Console Dispatch
       const melliSettings = JSON.parse(localStorage.getItem('melli_sms_settings') || '{}');
-      if (melliSettings.sendMethod === 'melli_api' || melliSettings.sendMethod === 'both') {
-        if (melliSettings.username && melliSettings.password && melliSettings.bodyId) {
-          fetch('https://rest.payamak-panel.com/api/SendSMS/BaseServiceNumber', {
+      const sendMethod = melliSettings.sendMethod || 'melli_api';
+      let apiSuccess = false;
+      let recId = '';
+
+      if (sendMethod === 'melli_api' || sendMethod === 'both') {
+        try {
+          const res = await fetch('/api/send-melli-sms', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
-              username: melliSettings.username,
-              password: melliSettings.password,
-              text: fullName + ';' + (melliSettings.storeName || 'گالری ظهورعطا'),
+              apiKey: melliSettings.apiKey || 'cc63e954690948d1914b1c1d48c2b323',
+              from: melliSettings.from || '50004001378267',
               to: phone,
-              bodyId: parseInt(melliSettings.bodyId, 10)
+              text: message
             })
-          }).catch(e => console.log('MelliSMS API call:', e));
+          });
+          const apiResult = await res.json();
+          console.log('MeliPayamak Result:', apiResult);
+          if (apiResult.success) {
+            apiSuccess = true;
+            recId = apiResult.recId || '';
+          }
+        } catch (e) {
+          console.error('MeliPayamak API call error:', e);
         }
       }
 
-      // 3. Open Native SMS Application
-      const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-      const smsUri = 'sms:' + phone + (isIOS ? '&' : '?') + 'body=' + encodeURIComponent(message);
-      window.location.href = smsUri;
+      // 3. Open Native SMS Application if requested
+      if (sendMethod === 'native_sms' || sendMethod === 'both') {
+        const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+        const smsUri = 'sms:' + phone + (isIOS ? '&' : '?') + 'body=' + encodeURIComponent(message);
+        window.location.href = smsUri;
+      }
 
       btn.disabled = false;
       btn.innerHTML = 'ثبت نهایی و ارسال پیامک';
-      alert('مشتری با موفقیت در سیستم ثبت و صفحه ارسال پیامک باز شد.');
+
+      if (apiSuccess) {
+        alert(`✅ پیامک با موفقیت از خط ${melliSettings.from || '50004001378267'} به مشتری (${phone}) ارسال شد.\nشناسه پیگیری: ${recId}`);
+      } else {
+        alert('مشتری با موفقیت در سیستم ثبت گردید.');
+      }
 
       // Reset Form
       document.getElementById('customer-phone').value = '';
@@ -1123,10 +1037,9 @@
     window.openSettingsModal = function() {
       document.getElementById('settings-modal').style.display = 'flex';
       const s = JSON.parse(localStorage.getItem('melli_sms_settings') || '{}');
-      if (s.username) document.getElementById('setting-melli-user').value = s.username;
-      if (s.password) document.getElementById('setting-melli-pass').value = s.password;
-      if (s.senderNumber) document.getElementById('setting-sender-number').value = s.senderNumber;
-      if (s.bodyId) document.getElementById('setting-melli-bodyid').value = s.bodyId;
+      document.getElementById('setting-melli-apikey').value = s.apiKey || 'cc63e954690948d1914b1c1d48c2b323';
+      document.getElementById('setting-melli-from').value = s.from || '50004001378267';
+      document.getElementById('setting-melli-user').value = s.username || '989193378267';
       if (s.sendMethod) document.getElementById('setting-send-method').value = s.sendMethod;
     };
     window.closeSettingsModal = function() { document.getElementById('settings-modal').style.display = 'none'; };
@@ -1134,31 +1047,75 @@
     window.saveSettings = function() {
       const s = {
         storeName: document.getElementById('setting-store-name').value.trim(),
-        username: document.getElementById('setting-melli-user').value.trim(),
-        password: document.getElementById('setting-melli-pass').value.trim(),
-        senderNumber: document.getElementById('setting-sender-number').value.trim(),
-        bodyId: document.getElementById('setting-melli-bodyid').value.trim(),
+        apiKey: document.getElementById('setting-melli-apikey').value.trim() || 'cc63e954690948d1914b1c1d48c2b323',
+        from: document.getElementById('setting-melli-from').value.trim() || '50004001378267',
+        username: document.getElementById('setting-melli-user').value.trim() || '989193378267',
         sendMethod: document.getElementById('setting-send-method').value
       };
       localStorage.setItem('melli_sms_settings', JSON.stringify(s));
-      alert('تنظیمات ملی‌پیامک با موفقیت ذخیره شد.');
+      alert('تنظیمات ملی‌پیامک ذخیره شد.');
       window.closeSettingsModal();
     };
 
-    window.testMelliSms = function() {
-      const user = document.getElementById('setting-melli-user').value.trim();
-      const pass = document.getElementById('setting-melli-pass').value.trim();
-      if (!user || !pass) {
-        alert('لطفاً نام کاربری و رمز عبور ملی‌پیامک را وارد کنید.');
+    // Live Test SMS via Active Credentials
+    window.testMelliSmsLive = async function() {
+      const testPhone = cleanPhone(document.getElementById('test-sms-phone').value);
+      const apiKey = document.getElementById('setting-melli-apikey').value.trim() || 'cc63e954690948d1914b1c1d48c2b323';
+      const fromNumber = document.getElementById('setting-melli-from').value.trim() || '50004001378267';
+      const resBox = document.getElementById('test-sms-result');
+
+      if (!testPhone || !/^09[0-9]{9}$/.test(testPhone)) {
+        alert('لطفاً یک شماره موبایل معتبر ۱۱ رقمی (۰۹...) وارد کنید.');
         return;
       }
-      alert('اطلاعات ملی‌پیامک معتبر است و آماده ارسال می‌باشد.');
+
+      resBox.style.display = 'block';
+      resBox.style.color = '#3b82f6';
+      resBox.textContent = 'در حال ارسال پیامک تستی از خط ' + fromNumber + '...';
+
+      try {
+        const res = await fetch('/api/send-melli-sms', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            apiKey: apiKey,
+            from: fromNumber,
+            to: testPhone,
+            text: 'تست اتصال موفق سامانه باشگاه مشتریان گالری طلا و جواهر ظهورعطا ✨\nاینستاگرام: @zohourata.jewelry'
+          })
+        });
+
+        const data = await res.json();
+        console.log('Test response:', data);
+
+        if (data.success) {
+          resBox.style.color = '#15803d';
+          resBox.textContent = `✅ پیامک با موفقیت ارسال شد! شناسه پیگیری: ${data.recId}`;
+        } else {
+          resBox.style.color = '#b91c1c';
+          resBox.textContent = `❌ خطا: ${data.statusText || data.error || 'ارسال نشد'}`;
+        }
+      } catch (err) {
+        resBox.style.color = '#b91c1c';
+        resBox.textContent = `❌ خطای ارتباط با سرور: ${err.message}`;
+      }
     };
+
+    // Auto-save default credentials on first load if not set
+    if (!localStorage.getItem('melli_sms_settings')) {
+      localStorage.setItem('melli_sms_settings', JSON.stringify({
+        storeName: 'گالری ظهورعطا',
+        apiKey: 'cc63e954690948d1914b1c1d48c2b323',
+        from: '50004001378267',
+        username: '989193378267',
+        sendMethod: 'melli_api'
+      }));
+    }
 
     // Run on load
     document.addEventListener('DOMContentLoaded', () => {
       window.renderTemplates();
-      window.selectTemplate('promo_auction');
+      window.selectTemplate('purchase_thankyou');
       document.getElementById('sms-custom-text').addEventListener('input', window.updateSmsCount);
     });
     window.renderTemplates();
